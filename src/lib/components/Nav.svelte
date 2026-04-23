@@ -10,6 +10,8 @@
 
   const sections = [
     { key: 'about', href: 'about' },
+    { key: 'currently', href: 'currently' },
+    { key: 'howIWork', href: 'how-i-work' },
     { key: 'experience', href: 'experience' },
     { key: 'projects', href: 'projects' },
     { key: 'skills', href: 'skills' },
