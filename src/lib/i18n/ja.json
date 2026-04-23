@@ -62,7 +62,27 @@
   },
   "skills": {
     "eyebrow": "スキル",
-    "title": "使用ツール",
+    "title": "作れるもの",
+    "capabilitiesTitle": "できること",
+    "capabilities": [
+      {
+        "title": "ML/DLモデルをゼロから実装。",
+        "body": "Transformer・CNN・古典手法まで、論文を読み解いてPyTorch / NumPyで組み上げます。ライブラリのラッパーに頼らない実装力。"
+      },
+      {
+        "title": "フルスタックWebアプリ開発。",
+        "body": "TypeScript（SvelteKit / React）のフロントから Python（FastAPI + PostgreSQL）のバックまで、一気通貫で機能を実装できます。"
+      },
+      {
+        "title": "LLMを組み込んだ機能の実装。",
+        "body": "LangChainや商用LLM APIを使い、プロンプト設計・構造化出力・パイプライン構築まで対応します。"
+      },
+      {
+        "title": "実験からデプロイ、運用まで。",
+        "body": "データ整形、古典手法と深層学習の比較、Dockerでのコンテナ化、AWSへのデプロイ、pytest / Playwrightでのテストまで担当できます。"
+      }
+    ],
+    "stackTitle": "使用している技術",
     "languages": "言語",
     "frameworks": "フレームワーク",
     "tools": "ツール"
