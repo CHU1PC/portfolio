@@ -11,14 +11,14 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: { en: 'Machine Learning Intern', ja: '機械学習インターン' },
+    role: { en: 'Backend & ML Engineering Intern', ja: 'バックエンド・機械学習エンジニアインターン' },
     org: { en: '2WINS, Inc.', ja: '株式会社 2WINS' },
     url: 'https://www.2wins.ai',
     start: '2025-04',
     end: null,
     blurb: {
-      en: 'Working on ML/AI product development — prototyping and shipping models into real applications.',
-      ja: 'ML/AIプロダクト開発。モデルのプロトタイピングから実アプリへの統合まで担当。'
+      en: 'Backend engineering on an AI product — designing APIs and data layers, and wiring ML models and LLM pipelines into real applications.',
+      ja: 'AIプロダクトのバックエンド開発を担当。API・データ層の設計から、MLモデル・LLMパイプラインを実アプリへ組み込むところまで。'
     }
   },
   {

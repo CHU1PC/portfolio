@@ -11,13 +11,14 @@ export const skills: SkillGroup[] = [
   {
     groupKey: 'frameworks',
     items: [
+      'FastAPI',
+      'SQLModel',
+      'LangChain',
       'PyTorch',
       'scikit-learn',
       'OpenCV',
-      'FastAPI',
-      'LangChain',
-      'React',
       'SvelteKit',
+      'React',
       'Tailwind CSS'
     ]
   },
@@ -29,6 +30,7 @@ export const skills: SkillGroup[] = [
       'Docker',
       'AWS',
       'PostgreSQL',
+      'Alembic',
       'Linux',
       'uv',
       'Bun',

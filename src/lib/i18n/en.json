@@ -12,8 +12,8 @@
   "hero": {
     "greeting": "Hello, 👋 I'm",
     "name": "Tadashi (CHU)",
-    "role": "ML / DL / Data Science",
-    "tagline": "Student at the University of Aizu. Building intelligent systems through prompt engineering, machine learning, and deep learning.",
+    "role": "Backend · ML / DL",
+    "tagline": "Student at the University of Aizu. Backend engineering as my core — with machine learning, deep learning, and LLM work woven in.",
     "ctaProjects": "See projects",
     "ctaContact": "Get in touch"
   },
@@ -21,18 +21,18 @@
     "eyebrow": "About",
     "title": "A little about me",
     "body": [
-      "I'm Tadashi — a CS student at the University of Aizu in Fukushima, currently interning as a machine learning engineer at 2WINS, Inc., where I prototype models and ship them into real applications. What keeps pulling me back to this field is the gap between a paper and a product — closing it means understanding the math well enough to reimplement it, and the engineering well enough to make it serve someone.",
-      "I learn by rebuilding. A lot of my projects are from-scratch studies — a mini GPT in pure PyTorch, the \"Deep Learning from Scratch\" book redone in NumPy, classical and deep-learning pipelines benchmarked side by side. When I'm not shipping or studying, I'm usually on Kaggle, reading a paper, or chasing a footnote someone else would've skipped."
+      "I'm Tadashi — a CS student at the University of Aizu in Fukushima, currently interning at 2WINS, Inc. My main focus is backend engineering — designing APIs, data layers, and the plumbing that keeps a product running — but I also work as a machine learning engineer, wiring models and LLM pipelines into real applications. What keeps pulling me back to this field is the gap between a paper and a product — closing it means understanding the math well enough to reimplement it, and the engineering well enough to make it serve someone.",
+      "I tend to learn by rebuilding. Backend work I mostly learn on the job — designing APIs, wrangling data layers, fixing bugs that only surface under load. On the ML side my public side-projects are from-scratch studies: a mini GPT in pure PyTorch, the \"Deep Learning from Scratch\" book redone in NumPy, classical and deep-learning pipelines benchmarked side by side. When I'm not shipping or studying, I'm usually on Kaggle, reading a paper, or chasing a footnote someone else would've skipped."
     ],
     "location": "Fukushima, Japan",
     "school": "University of Aizu",
-    "interests": "Prompt Engineering · ML · DL · Data Science"
+    "interests": "Backend · APIs · ML · DL"
   },
   "currently": {
     "eyebrow": "Currently",
     "title": "What I'm up to right now",
     "items": [
-      { "lead": "Prototyping & shipping ML models at", "highlight": "2WINS, Inc." },
+      { "lead": "Backend engineering & ML work at", "highlight": "2WINS, Inc." },
       { "lead": "B.Sc. Computer Science at the", "highlight": "University of Aizu" },
       { "lead": "Reimplementing papers and competing on", "highlight": "Kaggle on the side" }
     ]
@@ -66,20 +66,20 @@
     "capabilitiesTitle": "Things I can do",
     "capabilities": [
       {
-        "title": "Train ML/DL models from scratch.",
-        "body": "Transformers, CNNs, and classical baselines in PyTorch and NumPy — built from the paper up, not just wrapped."
+        "title": "Backend services & APIs.",
+        "body": "Designing and shipping async APIs on FastAPI + PostgreSQL — SQLModel, Alembic migrations, auth, pytest / Playwright coverage, and Docker / AWS deploys."
       },
       {
-        "title": "Full-stack web apps.",
-        "body": "End-to-end features in TypeScript (SvelteKit / React) on top of Python (FastAPI + PostgreSQL)."
+        "title": "Full-stack product features.",
+        "body": "TypeScript frontends (SvelteKit / React + Tailwind) wired into my Python backends, end to end."
       },
       {
         "title": "LLM-powered features.",
         "body": "Prompt engineering, structured output, and pipeline work with LangChain and commercial LLM APIs."
       },
       {
-        "title": "Experiment, ship, and keep it running.",
-        "body": "Clean data, run classical-vs-deep-learning baselines, containerize with Docker, deploy on AWS, and cover it with pytest / Playwright."
+        "title": "ML / DL from scratch.",
+        "body": "Transformers, CNNs, and classical baselines in PyTorch and NumPy — built from the paper up, not just wrapped."
       }
     ],
     "stackTitle": "Stack I work with",
