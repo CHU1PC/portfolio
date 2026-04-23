@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, 👋 I'm",
+    "name": "Tadashi (CHU)",
+    "role": "ML / DL / Data Science",
+    "tagline": "Student at the University of Aizu. Building intelligent systems through prompt engineering, machine learning, and deep learning.",
+    "ctaProjects": "See projects",
+    "ctaContact": "Get in touch"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "A little about me",
+    "body": "I'm a student at the University of Aizu in Fukushima, Japan, concurrently interning at 2WINS, Inc. and AVILEN, Inc. My interests live at the intersection of deep learning research and practical engineering — I like reading papers, reimplementing them from scratch, and shipping them as real services. Outside of ML I enjoy Kaggle competitions, reading, and contributing to open source.",
+    "location": "Fukushima, Japan",
+    "school": "University of Aizu",
+    "interests": "Prompt Engineering · ML · DL · Data Science"
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Where I've been",
+    "present": "Present"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Selected work",
+    "viewOnGithub": "View on GitHub",
+    "liveDemo": "Live demo",
+    "featured": "Featured",
+    "allProjects": "All projects on GitHub"
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "title": "Tools I use",
+    "languages": "Languages",
+    "frameworks": "Frameworks",
+    "tools": "Tools"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's talk",
+    "body": "Open to internship, research collaboration, and freelance work. The fastest way to reach me is email.",
+    "email": "Email",
+    "github": "GitHub",
+    "resume": "Download résumé"
+  },
+  "blog": {
+    "eyebrow": "Blog",
+    "title": "Writing",
+    "description": "Notes on what I'm learning — paper reimplementations, engineering, and the occasional rant.",
+    "readMore": "Read more",
+    "backToBlog": "← Back to blog",
+    "empty": "No posts yet. Check back soon!"
+  },
+  "footer": {
+    "builtWith": "Built with SvelteKit & Tailwind.",
+    "source": "Source"
+  }
+}

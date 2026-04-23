@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "about": "自己紹介",
+    "experience": "経歴",
+    "projects": "プロジェクト",
+    "skills": "スキル",
+    "blog": "ブログ",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "greeting": "こんにちは 👋",
+    "name": "Tadashi (CHU)",
+    "role": "機械学習 / 深層学習 / データサイエンス",
+    "tagline": "会津大学の学生です。プロンプトエンジニアリング・機械学習・深層学習を通じて知的なシステムを作っています。",
+    "ctaProjects": "プロジェクトを見る",
+    "ctaContact": "連絡する"
+  },
+  "about": {
+    "eyebrow": "自己紹介",
+    "title": "私について",
+    "body": "福島県の会津大学に通いながら、株式会社2WINSと株式会社AVILENでインターンをしています。論文を読み、ゼロから再実装し、実サービスに落とし込むことが好きです。ML以外では、Kaggle・読書・OSSへの貢献を楽しんでいます。",
+    "location": "日本・福島",
+    "school": "会津大学",
+    "interests": "プロンプトエンジニアリング・機械学習・深層学習・データサイエンス"
+  },
+  "experience": {
+    "eyebrow": "経歴",
+    "title": "これまでの歩み",
+    "present": "現在"
+  },
+  "projects": {
+    "eyebrow": "プロジェクト",
+    "title": "主な作品",
+    "viewOnGithub": "GitHubで見る",
+    "liveDemo": "デモを見る",
+    "featured": "注目",
+    "allProjects": "すべてのプロジェクトはGitHubへ"
+  },
+  "skills": {
+    "eyebrow": "スキル",
+    "title": "使用ツール",
+    "languages": "言語",
+    "frameworks": "フレームワーク",
+    "tools": "ツール"
+  },
+  "contact": {
+    "eyebrow": "お問い合わせ",
+    "title": "お気軽にどうぞ",
+    "body": "インターン・研究共同・フリーランスなど、お気軽にご連絡ください。メールが一番早いです。",
+    "email": "メール",
+    "github": "GitHub",
+    "resume": "履歴書をダウンロード"
+  },
+  "blog": {
+    "eyebrow": "ブログ",
+    "title": "書いたもの",
+    "description": "学んだことのメモ：論文再実装、エンジニアリング、ときどき雑記。",
+    "readMore": "続きを読む",
+    "backToBlog": "← ブログ一覧へ",
+    "empty": "まだ投稿はありません。お楽しみに。"
+  },
+  "footer": {
+    "builtWith": "SvelteKit と Tailwind で構築",
+    "source": "ソース"
+  }
+}
