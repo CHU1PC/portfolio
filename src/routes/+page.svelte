@@ -1,6 +1,8 @@
 <script lang="ts">
   import Hero from '$lib/components/Hero.svelte';
   import About from '$lib/components/About.svelte';
+  import Currently from '$lib/components/Currently.svelte';
+  import HowIWork from '$lib/components/HowIWork.svelte';
   import Timeline from '$lib/components/Timeline.svelte';
   import Projects from '$lib/components/Projects.svelte';
   import Skills from '$lib/components/Skills.svelte';
@@ -13,6 +15,8 @@
 
 <Hero />
 <About />
+<Currently />
+<HowIWork />
 <Timeline />
 <Projects />
 <Skills />

@@ -1,6 +1,8 @@
 {
   "nav": {
     "about": "About",
+    "currently": "Currently",
+    "howIWork": "How I work",
     "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
@@ -18,10 +20,33 @@
   "about": {
     "eyebrow": "About",
     "title": "A little about me",
-    "body": "I'm a student at the University of Aizu in Fukushima, Japan, concurrently interning at 2WINS, Inc. and AVILEN, Inc. My interests live at the intersection of deep learning research and practical engineering — I like reading papers, reimplementing them from scratch, and shipping them as real services. Outside of ML I enjoy Kaggle competitions, reading, and contributing to open source.",
+    "body": [
+      "I'm Tadashi — a CS student at the University of Aizu in Fukushima, spending my time between two ML internships. At 2WINS, Inc. I prototype models and ship them into real applications; at AVILEN, Inc. I work on AI engineering and education. What keeps pulling me back to this field is the gap between a paper and a product — closing it means understanding the math well enough to reimplement it, and the engineering well enough to make it serve someone.",
+      "I learn by rebuilding. A lot of my projects are from-scratch studies — a mini GPT in pure PyTorch, the \"Deep Learning from Scratch\" book redone in NumPy, classical and deep-learning pipelines benchmarked side by side. When I'm not shipping or studying, I'm usually on Kaggle, reading a paper, or chasing a footnote someone else would've skipped."
+    ],
     "location": "Fukushima, Japan",
     "school": "University of Aizu",
     "interests": "Prompt Engineering · ML · DL · Data Science"
+  },
+  "currently": {
+    "eyebrow": "Currently",
+    "title": "What I'm up to right now",
+    "items": [
+      { "lead": "Prototyping & shipping ML models at", "highlight": "2WINS, Inc." },
+      { "lead": "AI engineering & education at", "highlight": "AVILEN, Inc." },
+      { "lead": "B.Sc. Computer Science at the", "highlight": "University of Aizu" },
+      { "lead": "Reimplementing papers and competing on", "highlight": "Kaggle on the side" }
+    ]
+  },
+  "howIWork": {
+    "eyebrow": "How I work",
+    "title": "A few things I try to do",
+    "principles": [
+      { "title": "Reimplement to understand.", "body": "If I can't rebuild it, I don't really know it." },
+      { "title": "Compare before committing.", "body": "Classical baselines alongside deep learning — I pick a direction only after I've seen them race." },
+      { "title": "Ship it, then improve it.", "body": "A rough version in production teaches more than a polished one in a notebook." },
+      { "title": "Learn the plumbing too.", "body": "Caching, async, data wrangling — the unglamorous parts decide whether a model ever ships." }
+    ]
   },
   "experience": {
     "eyebrow": "Experience",
