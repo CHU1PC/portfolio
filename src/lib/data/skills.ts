@@ -10,10 +10,35 @@ export const skills: SkillGroup[] = [
   },
   {
     groupKey: 'frameworks',
-    items: ['PyTorch', 'scikit-learn', 'OpenCV', 'FastAPI', 'React', 'SvelteKit']
+    items: [
+      'PyTorch',
+      'scikit-learn',
+      'OpenCV',
+      'FastAPI',
+      'LangChain',
+      'React',
+      'SvelteKit',
+      'Tailwind CSS'
+    ]
   },
   {
     groupKey: 'tools',
-    items: ['Git', 'GitHub', 'Docker', 'Linux', 'VS Code', 'Jupyter', 'Obsidian', 'Notion']
+    items: [
+      'Git',
+      'GitHub',
+      'Docker',
+      'AWS',
+      'PostgreSQL',
+      'Linux',
+      'uv',
+      'Bun',
+      'Vite',
+      'pytest',
+      'Playwright',
+      'VS Code',
+      'Jupyter',
+      'Obsidian',
+      'Notion'
+    ]
   }
 ];
