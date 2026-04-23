@@ -11,7 +11,6 @@ Welcome to my blog. I'm **Tadashi (CHU)**, a student at the University of Aizu. 
 
 - Paper reimplementations — reading ML/DL papers and rebuilding them from scratch
 - Engineering notes from my internship at 2WINS
-- Kaggle post-mortems
 - The occasional thing I've learned the hard way
 
 ---
@@ -20,7 +19,6 @@ Welcome to my blog. I'm **Tadashi (CHU)**, a student at the University of Aizu. 
 
 - 論文再実装（ML/DL論文をゼロから書き直す記録）
 - 2WINSインターンで学んだエンジニアリングメモ
-- Kaggleの振り返り
 - その他、苦労して学んだこと
 
 などを書いていく予定です。
