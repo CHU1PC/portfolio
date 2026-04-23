@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Tadashi (CHU)" />
+    <meta name="description" content="Portfolio of Tadashi (CHU) — ML / DL / Data Science student at the University of Aizu." />
+    <meta property="og:title" content="Tadashi (CHU) — Portfolio" />
+    <meta property="og:description" content="ML / DL / Data Science student at the University of Aizu. Interning at 2WINS and AVILEN." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chu1pc.github.io" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // Flash-of-wrong-theme guard: set class before paint.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored ? stored === 'dark' : prefersDark || true;
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch (e) {}
+      })();
+    </script>
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover" class="bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>
