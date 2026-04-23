@@ -21,7 +21,7 @@
     "eyebrow": "About",
     "title": "A little about me",
     "body": [
-      "I'm Tadashi — a CS student at the University of Aizu in Fukushima, spending my time between two ML internships. At 2WINS, Inc. I prototype models and ship them into real applications; at AVILEN, Inc. I work on AI engineering and education. What keeps pulling me back to this field is the gap between a paper and a product — closing it means understanding the math well enough to reimplement it, and the engineering well enough to make it serve someone.",
+      "I'm Tadashi — a CS student at the University of Aizu in Fukushima, currently interning as a machine learning engineer at 2WINS, Inc., where I prototype models and ship them into real applications. What keeps pulling me back to this field is the gap between a paper and a product — closing it means understanding the math well enough to reimplement it, and the engineering well enough to make it serve someone.",
       "I learn by rebuilding. A lot of my projects are from-scratch studies — a mini GPT in pure PyTorch, the \"Deep Learning from Scratch\" book redone in NumPy, classical and deep-learning pipelines benchmarked side by side. When I'm not shipping or studying, I'm usually on Kaggle, reading a paper, or chasing a footnote someone else would've skipped."
     ],
     "location": "Fukushima, Japan",
@@ -33,7 +33,6 @@
     "title": "What I'm up to right now",
     "items": [
       { "lead": "Prototyping & shipping ML models at", "highlight": "2WINS, Inc." },
-      { "lead": "AI engineering & education at", "highlight": "AVILEN, Inc." },
       { "lead": "B.Sc. Computer Science at the", "highlight": "University of Aizu" },
       { "lead": "Reimplementing papers and competing on", "highlight": "Kaggle on the side" }
     ]
