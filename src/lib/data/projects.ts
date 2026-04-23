@@ -67,17 +67,6 @@ export const projects: Project[] = [
     featured: false
   },
   {
-    slug: 'kaggle-comp',
-    title: { en: 'Kaggle Competitions', ja: 'Kaggleコンペ' },
-    description: {
-      en: 'Notebooks and solutions from Kaggle competitions I\'ve entered — feature engineering, CV tricks, and ensembling.',
-      ja: '参加したKaggleコンペのノートブックと解法。特徴量エンジニアリング、CV、アンサンブルなど。'
-    },
-    tech: ['Python', 'pandas', 'Jupyter'],
-    github: 'https://github.com/CHU1PC/kaggle_comp',
-    featured: false
-  },
-  {
     slug: 'data-analytics-100',
     title: { en: 'Data Analytics 100 Knocks', ja: 'データ分析100本ノック' },
     description: {
