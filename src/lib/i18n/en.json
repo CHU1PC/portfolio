@@ -62,7 +62,27 @@
   },
   "skills": {
     "eyebrow": "Skills",
-    "title": "Tools I use",
+    "title": "What I can build",
+    "capabilitiesTitle": "Things I can do",
+    "capabilities": [
+      {
+        "title": "Train ML/DL models from scratch.",
+        "body": "Transformers, CNNs, and classical baselines in PyTorch and NumPy — built from the paper up, not just wrapped."
+      },
+      {
+        "title": "Full-stack web apps.",
+        "body": "End-to-end features in TypeScript (SvelteKit / React) on top of Python (FastAPI + PostgreSQL)."
+      },
+      {
+        "title": "LLM-powered features.",
+        "body": "Prompt engineering, structured output, and pipeline work with LangChain and commercial LLM APIs."
+      },
+      {
+        "title": "Experiment, ship, and keep it running.",
+        "body": "Clean data, run classical-vs-deep-learning baselines, containerize with Docker, deploy on AWS, and cover it with pytest / Playwright."
+      }
+    ],
+    "stackTitle": "Stack I work with",
     "languages": "Languages",
     "frameworks": "Frameworks",
     "tools": "Tools"
