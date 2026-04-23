@@ -28,8 +28,8 @@ export const experience: Experience[] = [
     start: '2024-04',
     end: null,
     blurb: {
-      en: 'Studying CS with a focus on machine learning, deep learning, and data science.',
-      ja: '機械学習・深層学習・データサイエンスを中心に学習中。'
+      en: 'Studying CS with a focus on machine learning, deep learning, and data science. Admitted a year early through the early-entrance program (飛び入学).',
+      ja: '機械学習・深層学習・データサイエンスを中心に学習中。飛び入学制度で1年早く入学。'
     }
   }
 ];
