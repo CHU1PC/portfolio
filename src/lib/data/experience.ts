@@ -22,17 +22,6 @@ export const experience: Experience[] = [
     }
   },
   {
-    role: { en: 'AI Engineering Intern', ja: 'AIエンジニアインターン' },
-    org: { en: 'AVILEN, Inc.', ja: '株式会社 AVILEN' },
-    url: 'https://avilen.co.jp',
-    start: '2025-09',
-    end: null,
-    blurb: {
-      en: 'Contributing to AI education and enterprise-facing engineering work.',
-      ja: 'AI教育および法人向けAIエンジニアリング業務に貢献。'
-    }
-  },
-  {
     role: { en: 'B.Sc. Computer Science & Engineering', ja: 'コンピュータ理工学部 在学' },
     org: { en: 'University of Aizu', ja: '会津大学' },
     url: 'https://u-aizu.ac.jp',
