@@ -14,7 +14,7 @@ const config = {
       fallback: '404.html',
       strict: true
     }),
-    paths: { base: '' },
+    paths: { base: '/portfolio' },
     prerender: { handleHttpError: 'warn' }
   }
 };
