@@ -1,6 +1,7 @@
 <script lang="ts">
   import { t } from '$lib/i18n';
   import { inView } from '$lib/actions/inView';
+  import { base } from '$app/paths';
   import { Mail, Github, FileDown } from 'lucide-svelte';
 </script>
 
@@ -21,7 +22,7 @@
         <Github size={16} />
         {$t('contact.github')}
       </a>
-      <a href="/resume.pdf" target="_blank" rel="noopener" class="btn-ghost">
+      <a href="{base}/resume.pdf" target="_blank" rel="noopener" class="btn-ghost">
         <FileDown size={16} />
         {$t('contact.resume')}
       </a>
