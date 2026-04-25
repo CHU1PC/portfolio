@@ -7,7 +7,7 @@
   <div class="container-page flex flex-col items-center justify-between gap-3 sm:flex-row">
     <p>© {new Date().getFullYear()} Tadashi (CHU). {$t('footer.builtWith')}</p>
     <a
-      href="https://github.com/CHU1PC/chu1pc.github.io"
+      href="https://github.com/CHU1PC/portfolio"
       target="_blank"
       rel="noopener"
       class="inline-flex items-center gap-1 hover:text-accent"
