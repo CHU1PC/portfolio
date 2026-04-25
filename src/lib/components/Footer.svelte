@@ -4,8 +4,7 @@
 </script>
 
 <footer class="mt-24 border-t border-zinc-200 py-10 text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-  <div class="container-page flex flex-col items-center justify-between gap-3 sm:flex-row">
-    <p>© {new Date().getFullYear()} Tadashi (CHU). {$t('footer.builtWith')}</p>
+  <div class="container-page flex items-center justify-center">
     <a
       href="https://github.com/CHU1PC/portfolio"
       target="_blank"
