@@ -16,8 +16,8 @@
   $: sorted = [...experience].sort((a, b) => b.start.localeCompare(a.start));
 </script>
 
-<section id="experience" class="container-page py-20">
-  <div use:inView>
+<section id="experience" class="py-20">
+  <div class="container-page" use:inView>
     <p class="section-eyebrow">{$t('experience.eyebrow')}</p>
     <h2 class="section-title">{$t('experience.title')}</h2>
     <ol class="relative mt-10 border-l-2 border-zinc-200 dark:border-zinc-800">

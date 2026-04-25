@@ -6,8 +6,8 @@
   $: paragraphs = ($tNode('about.body') ?? []) as string[];
 </script>
 
-<section id="about" class="container-page py-20">
-  <div use:inView>
+<section id="about" class="py-20">
+  <div class="container-page" use:inView>
     <p class="section-eyebrow">{$t('about.eyebrow')}</p>
     <h2 class="section-title">{$t('about.title')}</h2>
     <div class="mt-8 grid gap-8 md:grid-cols-3">

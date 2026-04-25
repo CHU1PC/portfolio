@@ -4,8 +4,9 @@
   import { Mail, Github, FileDown } from 'lucide-svelte';
 </script>
 
-<section id="contact" class="container-page py-20">
-  <div use:inView class="mx-auto max-w-3xl text-center">
+<section id="contact" class="py-20">
+  <div class="container-page">
+    <div use:inView class="mx-auto max-w-3xl text-center">
     <p class="section-eyebrow">{$t('contact.eyebrow')}</p>
     <h2 class="section-title">{$t('contact.title')}</h2>
     <p class="mt-4 text-lg text-zinc-700 dark:text-zinc-300">
@@ -24,6 +25,7 @@
         <FileDown size={16} />
         {$t('contact.resume')}
       </a>
+    </div>
     </div>
   </div>
 </section>

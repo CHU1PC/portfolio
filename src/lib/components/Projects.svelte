@@ -8,8 +8,8 @@
   $: ordered = [...projects].sort((a, b) => Number(b.featured) - Number(a.featured));
 </script>
 
-<section id="projects" class="container-page py-20">
-  <div use:inView>
+<section id="projects" class="py-20">
+  <div class="container-page" use:inView>
     <p class="section-eyebrow">{$t('projects.eyebrow')}</p>
     <h2 class="section-title">{$t('projects.title')}</h2>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
