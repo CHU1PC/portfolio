@@ -12,8 +12,8 @@ export default {
       },
       colors: {
         accent: {
-          DEFAULT: '#6366f1',
-          hover: '#818cf8'
+          DEFAULT: '#f97316',
+          hover: '#fb923c'
         }
       },
       typography: ({ theme }: { theme: (path: string) => string }) => ({
