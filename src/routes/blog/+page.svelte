@@ -1,6 +1,7 @@
 <script lang="ts">
   import { t } from '$lib/i18n';
   import { lang } from '$lib/stores/lang';
+  import { base } from '$app/paths';
   import { ArrowRight } from 'lucide-svelte';
   export let data;
 </script>
@@ -20,7 +21,7 @@
     <ul class="mt-10 divide-y divide-zinc-200 dark:divide-zinc-800">
       {#each data.posts as post (post.slug)}
         <li class="py-6">
-          <a href={`/blog/${post.slug}`} class="group block">
+          <a href={`${base}/blog/${post.slug}`} class="group block">
             <div class="flex items-baseline justify-between gap-4">
               <h2 class="text-xl font-semibold group-hover:text-accent">
                 {$lang === 'ja' ? post.title_ja : post.title_en}

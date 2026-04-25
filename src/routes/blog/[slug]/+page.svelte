@@ -1,6 +1,7 @@
 <script lang="ts">
   import { t } from '$lib/i18n';
   import { lang } from '$lib/stores/lang';
+  import { base } from '$app/paths';
   import { ArrowLeft } from 'lucide-svelte';
   export let data;
 </script>
@@ -10,7 +11,7 @@
 </svelte:head>
 
 <article class="container-page py-20">
-  <a href="/blog" class="inline-flex items-center gap-1 text-sm text-accent hover:underline">
+  <a href="{base}/blog" class="inline-flex items-center gap-1 text-sm text-accent hover:underline">
     <ArrowLeft size={14} />
     {$t('blog.backToBlog')}
   </a>
