@@ -1,13 +1,11 @@
 <script lang="ts">
   import { t } from '$lib/i18n';
-  import { page } from '$app/stores';
   import { base } from '$app/paths';
   import LangToggle from './LangToggle.svelte';
   import ThemeToggle from './ThemeToggle.svelte';
   import { Menu, X } from 'lucide-svelte';
 
   let open = false;
-  $: onHome = $page.url.pathname === `${base}/` || $page.url.pathname === base;
 
   const sections = [
     { key: 'about', href: 'about' },
@@ -20,7 +18,7 @@
   ];
 
   function hrefFor(h: string) {
-    return onHome ? `#${h}` : `${base}/#${h}`;
+    return `${base}/#${h}`;
   }
 </script>
 
