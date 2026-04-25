@@ -8,8 +8,8 @@
   $: capabilities = ($tNode('skills.capabilities') ?? []) as Capability[];
 </script>
 
-<section id="skills" class="container-page py-20">
-  <div use:inView>
+<section id="skills" class="py-20">
+  <div class="container-page" use:inView>
     <p class="section-eyebrow">{$t('skills.eyebrow')}</p>
     <h2 class="section-title">{$t('skills.title')}</h2>
 
