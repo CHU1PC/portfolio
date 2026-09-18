@@ -1,0 +1,23 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { defaultLang } from '../i18n';
+
+// 静的ホスティングではサーバー側リダイレクトを張れないので、meta refresh と JS で送る
+const target = getRelativeLocaleUrl(defaultLang, '/');
+---
+
+<html lang={defaultLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={new URL(target, Astro.site).href} />
+    <title>Tadashi (CHU) — Portfolio</title>
+    <script is:inline define:vars={{ target }}>
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <a href={target}>Tadashi (CHU) — Portfolio</a>
+  </body>
+</html>
