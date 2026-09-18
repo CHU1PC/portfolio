@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../layouts/Base.astro';
+import SplitHeading from '../../components/SplitHeading.astro';
 import { locales, resolveLang, useTranslations } from '../../i18n';
 import { projects } from '../../data/projects';
 import { experience, type Experience } from '../../data/experience';
@@ -38,10 +39,10 @@ function formatPeriod(item: Experience): string {
 ---
 
 <Base lang={lang}>
-  <section id="hero" class="hero" data-geo="hero">
+  <section id="hero" class="hero" data-geo="hero" data-reveal-group>
     <div class="shell">
-      <p class="eyebrow">Portfolio</p>
-      <div class="name-row">
+      <p class="eyebrow" data-reveal>Portfolio</p>
+      <div class="name-row" data-reveal>
         <img
           class="photo"
           src={photoSrc}
@@ -51,29 +52,55 @@ function formatPeriod(item: Experience): string {
           loading="eager"
           decoding="async"
         />
-        <h1 class="text-display name">{t.hero.name}</h1>
+        <h1 class="sr-only">{t.hero.name}</h1>
+        <span
+          class="text-display name"
+          data-typewriter
+          data-typewriter-chain="a"
+          data-typewriter-order="1"
+          data-typewriter-speed="70"
+          aria-hidden="true"
+        >{t.hero.name}</span>
       </div>
-      <p class="role">{t.hero.role}</p>
-      <p class="tagline">{t.hero.tagline}</p>
-      <div class="cta">
+      <p
+        class="role"
+        data-reveal
+        data-typewriter
+        data-typewriter-chain="a"
+        data-typewriter-order="2"
+        data-typewriter-speed="40"
+        aria-hidden="true"
+      >{t.hero.role}</p>
+      <p class="sr-only">{t.hero.role}</p>
+      <p
+        class="tagline"
+        data-reveal
+        data-typewriter
+        data-typewriter-chain="b"
+        data-typewriter-order="1"
+        data-typewriter-speed="40"
+        aria-hidden="true"
+      >{t.hero.tagline}</p>
+      <p class="sr-only">{t.hero.tagline}</p>
+      <div class="cta" data-reveal>
         <a class="cta-link" href={anchor('projects')}>{t.hero.ctaProjects}</a>
         <a class="cta-link" href={anchor('contact')}>{t.hero.ctaContact}</a>
       </div>
-      <span class="scroll">{t.hero.scroll}</span>
+      <span class="scroll" data-reveal>{t.hero.scroll}</span>
     </div>
   </section>
 
-  <section id="projects" class="block" data-geo="projects">
+  <section id="projects" class="block" data-geo="projects" data-reveal-group>
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow">01</p>
-        <h2 class="text-h2 heading">{t.sections.projects}</h2>
+        <p class="eyebrow" data-reveal data-count={1}>01</p>
+        <SplitHeading text={t.sections.projects} />
       </header>
 
       <ul class="cards">
         {
           projects.map((project) => (
-            <li class="card content-panel" data-spotlight>
+            <li class="card content-panel" data-reveal data-spotlight>
               <div class="card-head">
                 <span class="year">{project.year}</span>
                 {project.role !== undefined && (
@@ -102,36 +129,36 @@ function formatPeriod(item: Experience): string {
     </div>
   </section>
 
-  <section id="about" class="block" data-geo="about">
+  <section id="about" class="block" data-geo="about" data-reveal-group>
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow">02</p>
-        <h2 class="text-h2 heading">{t.sections.about}</h2>
+        <p class="eyebrow" data-reveal data-count={2}>02</p>
+        <SplitHeading text={t.sections.about} />
       </header>
 
-      <div class="panel content-panel" data-spotlight>
+      <div class="panel content-panel" data-reveal data-spotlight>
         {t.about.body.map((paragraph) => <p class="prose">{paragraph}</p>)}
         <p class="about-meta">{t.about.location} ・ {t.about.school}</p>
       </div>
     </div>
   </section>
 
-  <section id="experience" class="block" data-geo="experience">
+  <section id="experience" class="block" data-geo="experience" data-reveal-group>
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow">03</p>
-        <h2 class="text-h2 heading">{t.sections.experience}</h2>
+        <p class="eyebrow" data-reveal data-count={3}>03</p>
+        <SplitHeading text={t.sections.experience} />
       </header>
 
-      <ol class="timeline">
+      <ol class="timeline" data-timeline>
         {
           experience.map((item) => (
-            <li class="entry">
+            <li class="entry" data-reveal data-timeline-entry>
               <div class="period">
                 <span>{formatPeriod(item)}</span>
                 {item.kind === 'short' && <span class="badge">{t.experience.short}</span>}
               </div>
-              <div class="entry-body">
+              <div class="entry-body" data-timeline-body>
                 <h3 class="text-h3 entry-role">{item.role[lang]}</h3>
                 <p class="entry-org">
                   {item.url === undefined ? (
@@ -160,14 +187,14 @@ function formatPeriod(item: Experience): string {
     </div>
   </section>
 
-  <section id="skills" class="block" data-geo="skills">
+  <section id="skills" class="block" data-geo="skills" data-reveal-group>
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow">04</p>
-        <h2 class="text-h2 heading">{t.sections.skills}</h2>
+        <p class="eyebrow" data-reveal data-count={4}>04</p>
+        <SplitHeading text={t.sections.skills} />
       </header>
 
-      <div class="panel content-panel" data-spotlight>
+      <div class="panel content-panel" data-reveal data-spotlight>
         <h3 class="sub-title">{t.skills.capabilitiesTitle}</h3>
         <ul class="capabilities">
           {
@@ -181,7 +208,7 @@ function formatPeriod(item: Experience): string {
         </ul>
       </div>
 
-      <div class="panel content-panel stack" data-spotlight>
+      <div class="panel content-panel stack" data-reveal data-spotlight>
         <h3 class="sub-title">{t.skills.stackTitle}</h3>
         <dl class="groups">
           {
@@ -220,14 +247,14 @@ function formatPeriod(item: Experience): string {
     </div>
   </section>
 
-  <section id="contact" class="block" data-geo="contact">
+  <section id="contact" class="block" data-geo="contact" data-reveal-group>
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow">05</p>
-        <h2 class="text-h2 heading">{t.sections.contact}</h2>
+        <p class="eyebrow" data-reveal data-count={5}>05</p>
+        <SplitHeading text={t.sections.contact} />
       </header>
 
-      <div class="panel content-panel" data-spotlight>
+      <div class="panel content-panel" data-reveal data-spotlight>
         <p class="prose">{t.contact.body}</p>
         <ul class="links">
           <li>
@@ -249,9 +276,19 @@ function formatPeriod(item: Experience): string {
 </Base>
 
 <script>
+  import { startCounters } from '../../scripts/counter';
   import { alignSkillTips } from '../../scripts/skill-tooltip';
+  import { startSpotlight } from '../../scripts/spotlight';
+  import { startTimeline } from '../../scripts/timeline';
+  import { startTypewriter } from '../../scripts/typewriter';
 
+  startCounters();
+  startSpotlight();
+  startTypewriter();
   alignSkillTips();
+
+  const timeline = document.querySelector<HTMLElement>('[data-timeline]');
+  if (timeline !== null) startTimeline(timeline);
 </script>
 
 <style>
@@ -272,6 +309,7 @@ function formatPeriod(item: Experience): string {
 
   .name {
     margin: 0;
+    min-height: 1lh;
     font-weight: 400;
   }
 
@@ -299,14 +337,31 @@ function formatPeriod(item: Experience): string {
 
   .role {
     margin: 1.2em 0 0;
+    min-height: 1lh;
     color: var(--ink-muted);
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: var(--fs-small);
   }
 
+  /* typewriter.ts が打っている間だけカーソルを出す */
+  .name.is-typing::after,
+  .role.is-typing::after,
+  .tagline.is-typing::after {
+    content: '|';
+    margin-left: 0.1em;
+    animation: caret 1s step-end infinite;
+  }
+
+  @keyframes caret {
+    50% {
+      opacity: 0;
+    }
+  }
+
   .tagline {
     margin: 1.6em 0 0;
+    min-height: 1lh;
     max-width: 52ch;
     color: var(--ink-muted);
   }
@@ -346,6 +401,7 @@ function formatPeriod(item: Experience): string {
     line-height: 1.2;
     letter-spacing: 0.2em;
     text-transform: uppercase;
+    transition: opacity 0.4s ease;
   }
 
   .scroll::after {
@@ -381,6 +437,10 @@ function formatPeriod(item: Experience): string {
     }
   }
 
+  :global(html[data-scrolled]) .scroll {
+    opacity: 0;
+  }
+
   .eyebrow {
     margin: 0;
     color: var(--ink-faint);
@@ -401,12 +461,6 @@ function formatPeriod(item: Experience): string {
     flex-wrap: wrap;
     gap: clamp(1rem, 3vw, 2.5rem);
     margin-bottom: clamp(2.5rem, 7vh, 5rem);
-  }
-
-  .heading {
-    margin: 0;
-    font-family: var(--font-mincho);
-    font-weight: 400;
   }
 
   .panel {
@@ -662,6 +716,33 @@ function formatPeriod(item: Experience): string {
     list-style: none;
   }
 
+  /* 位置と進捗は timeline.ts が測って CSS 変数で渡す。
+     is-animated が付くまでは各項目の border-left がそのまま線になる */
+  .timeline.is-animated::after {
+    content: '';
+    position: absolute;
+    left: var(--line-left, 0);
+    top: var(--line-top, 0);
+    width: 1px;
+    height: var(--line-height, 0);
+    background-color: var(--line);
+    transform: scaleY(var(--timeline-progress, 0));
+    transform-origin: top;
+  }
+
+  .timeline.is-animated .entry-body {
+    border-left-color: transparent;
+  }
+
+  .timeline.is-animated .entry-body::before {
+    transform: scale(0);
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .timeline.is-animated .entry.is-on .entry-body::before {
+    transform: scale(1);
+  }
+
   .entry {
     display: grid;
     grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
@@ -819,6 +900,23 @@ function formatPeriod(item: Experience): string {
     margin: 0;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .group .tags li {
+      opacity: 0;
+      transform: scale(0.9);
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-color 0.25s ease;
+      transition-delay: calc(var(--i) * 25ms);
+    }
+
+    [data-reveal-group].is-visible .group .tags li {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   /* Contact */
   .links {
     display: grid;
@@ -889,6 +987,10 @@ function formatPeriod(item: Experience): string {
     }
 
     .entry-body::before {
+      display: none;
+    }
+
+    .timeline.is-animated::after {
       display: none;
     }
 
