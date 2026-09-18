@@ -3,6 +3,7 @@
   import ThemeToggle from './ThemeToggle.svelte';
 
   interface NavItem {
+    /** 対応するセクションの DOM id。ヘッダー中央の現在地表示にも使う */
     id: string;
     href: string;
     label: string;
@@ -37,6 +38,30 @@
   }: Props = $props();
 
   let open = $state(false);
+  let current = $state('');
+
+  // 画面中央の帯に入っているセクションを現在地とする。ヒーローだけの間は空になる
+  $effect(() => {
+    const targets = items
+      .map((item) => document.getElementById(item.id))
+      .filter((element) => element !== null);
+    if (targets.length === 0) return;
+
+    const visible = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        }
+        current = items.find((item) => visible.has(item.id))?.label ?? '';
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
+    );
+
+    for (const target of targets) observer.observe(target);
+    return () => observer.disconnect();
+  });
 
   // オーバーレイ表示中は背後のページをスクロールさせない
   $effect(() => {
@@ -55,6 +80,12 @@
 
 <header class="header">
   <a class="brand" href={homeHref}>chu1pc</a>
+
+  <div class="section-label" aria-hidden="true">
+    {#key current}
+      <span class="section-text">{current}</span>
+    {/key}
+  </div>
 
   <div class="actions">
     <LangToggle href={langHref} label={langLabel} ariaLabel={langAriaLabel} />
@@ -105,6 +136,28 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink);
+  }
+
+  .section-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.2em;
+    pointer-events: none;
+  }
+
+  .section-text {
+    grid-area: 1 / 1;
+    animation: section-fade 0.2s ease;
+  }
+
+  @keyframes section-fade {
+    from {
+      opacity: 0;
+    }
   }
 
   .actions {
@@ -202,10 +255,20 @@
     color: var(--ink-faint);
   }
 
+  @media (max-width: 768px) {
+    .section-label {
+      display: none;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .overlay,
     li {
       transition-duration: 0.01ms;
+    }
+
+    .section-text {
+      animation: none;
     }
   }
 </style>

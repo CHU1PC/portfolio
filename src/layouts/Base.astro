@@ -67,6 +67,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
+    <div id="scroll-progress" aria-hidden="true"></div>
+
     <GeoBackground />
 
     <Nav
@@ -94,10 +96,34 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         {t.footer.source}
       </a>
     </footer>
+
+    <script>
+      import { startReveal } from '../scripts/reveal';
+      import { startScrollProgress } from '../scripts/scroll-progress';
+
+      startReveal();
+
+      const bar = document.getElementById('scroll-progress');
+      if (bar !== null) startScrollProgress(bar);
+    </script>
   </body>
 </html>
 
 <style>
+  /* 幅は scroll-progress.ts が scaleX で動かす */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60;
+    width: 100%;
+    height: 2px;
+    background-color: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left center;
+    pointer-events: none;
+  }
+
   .footer {
     display: flex;
     align-items: center;
