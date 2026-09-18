@@ -1,5 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import GeoBackground from '../components/GeoBackground.astro';
 import Nav from '../components/Nav.svelte';
 import { otherLang, useTranslations, type Lang } from '../i18n';
 import '../styles/global.css';
@@ -66,6 +67,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
+    <GeoBackground />
+
     <Nav
       client:load
       homeHref={homeHref}

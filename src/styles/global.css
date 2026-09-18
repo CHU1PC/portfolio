@@ -12,6 +12,12 @@
   --line-strong: rgb(255 255 255 / 0.3);
   /* カード内をポインタが照らす色。地の色は変えない程度に薄く置く */
   --spotlight: rgb(255 255 255 / 0.18);
+
+  /* 線画の背景が canvas に描く色。地は単色 */
+  --geo-bg: #0a0a0a;
+  /* 線の色。要素ごとの不透明度は 0.10〜0.22 の範囲でスクリプトが持つ */
+  --geo-rgb: 248 250 252;
+  --geo-grain-alpha: 0.03;
 }
 
 :root[data-theme='light'] {
@@ -24,6 +30,10 @@
   --line: rgb(15 23 42 / 0.14);
   --line-strong: rgb(15 23 42 / 0.3);
   --spotlight: rgb(11 18 32 / 0.14);
+
+  --geo-bg: #f4f4f2;
+  --geo-rgb: 11 18 32;
+  --geo-grain-alpha: 0.03;
 }
 
 @theme inline {
@@ -123,6 +133,51 @@
 @utility text-small {
   font-size: var(--fs-small);
   letter-spacing: 0.14em;
+}
+
+/* セクション本文の背後に敷く板。背後の線がぼけないよう backdrop-filter は使わない */
+@utility content-panel {
+  border-radius: 1.25rem;
+  border: 1px solid var(--line);
+  background-color: color-mix(in srgb, var(--surface) 35%, transparent);
+}
+
+:root[data-theme='light'] .content-panel {
+  background-color: color-mix(in srgb, var(--surface) 40%, transparent);
+}
+
+/* ポインタ追従のスポットライト演出。--mx / --my は src/scripts/spotlight.ts が書き換える */
+[data-spotlight] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+[data-spotlight]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    circle 14rem at var(--mx, 50%) var(--my, 50%),
+    var(--spotlight),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  [data-spotlight]:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-spotlight]::before {
+    display: none;
+  }
 }
 
 /* セクションの内容を中央に揃えるための箱 */
