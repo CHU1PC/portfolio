@@ -35,6 +35,57 @@ const en = {
     skills: 'Skills',
     contact: 'Contact'
   },
+  projects: {
+    viewOnGithub: 'View on GitHub'
+  },
+  about: {
+    body: [
+      'Studying computer science at the University of Aizu, which I entered a year early through the early-entrance program, while interning at 2WINS. There I implement APIs and the data layer, integrate ML and LLMs into real applications, and build the React frontend.',
+      'What drives all of it is that I simply like learning. I reimplement papers and books until the ideas are mine rather than quoted. At work I care most about the parts nobody puts in a demo — bugs that only appear under load, caching, anything asynchronous — because those are what decide whether the thing holds up.'
+    ],
+    location: 'Fukushima, Japan',
+    school: 'University of Aizu'
+  },
+  experience: {
+    present: 'Present',
+    tbd: 'TBD',
+    short: 'Short-term'
+  },
+  skills: {
+    capabilitiesTitle: 'What I can do',
+    capabilities: [
+      {
+        title: 'Full-stack product features.',
+        body: 'I implement features end to end, across infra, frontend, and backend.'
+      },
+      {
+        title: 'Backend services & APIs.',
+        body: 'Async APIs on FastAPI + PostgreSQL — SQLModel, Alembic migrations, auth, pytest / Playwright coverage, and Docker / AWS deploys.'
+      },
+      {
+        title: 'LLM-powered features.',
+        body: 'Prompt design, structured output, and pipeline work with LangChain and commercial LLM APIs.'
+      },
+      {
+        title: 'ML / DL from scratch.',
+        body: 'Transformers, CNNs, and classical baselines in PyTorch and NumPy — built from the paper up, not just wrapped.'
+      }
+    ],
+    stackTitle: 'Stack I work with',
+    groups: {
+      languages: 'Languages',
+      frontend: 'Frontend',
+      backend: 'Backend',
+      ml: 'ML / DL',
+      infra: 'Infra & Tools'
+    }
+  },
+  contact: {
+    body: 'Open to internships, research collaboration, and freelance work.',
+    email: 'Email',
+    github: 'GitHub',
+    x: 'X'
+  },
   footer: {
     builtWith: '',
     source: 'Source'
