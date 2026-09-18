@@ -3,6 +3,9 @@ import type { GetStaticPaths } from 'astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../layouts/Base.astro';
 import { locales, resolveLang, useTranslations } from '../../i18n';
+import { projects } from '../../data/projects';
+import { experience, type Experience } from '../../data/experience';
+import { skills, skillHost, skillLabel } from '../../data/skills';
 
 export const getStaticPaths = (() =>
   locales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
@@ -12,13 +15,44 @@ const t = useTranslations(lang);
 
 const homeHref = getRelativeLocaleUrl(lang, '/');
 const anchor = (id: string): string => `${homeHref}#${id}`;
+
+const photoSrc = `${import.meta.env.BASE_URL}me.webp`;
+
+const EMAIL = 'raikyu70@gmail.com';
+const GITHUB_URL = 'https://github.com/CHU1PC';
+const X_URL = 'https://x.com/tad_chu';
+
+/** 期間が未確定のデータに入る番兵 */
+const TBD = 'TODO';
+
+function formatMonth(value: string): string {
+  return value.replace('-', '.');
+}
+
+function formatPeriod(item: Experience): string {
+  if (item.start === TBD || item.end === TBD) return t.experience.tbd;
+  const start = formatMonth(item.start);
+  const end = item.end === null ? t.experience.present : formatMonth(item.end);
+  return start === end ? start : `${start} — ${end}`;
+}
 ---
 
 <Base lang={lang}>
   <section id="hero" class="hero" data-geo="hero">
     <div class="shell">
       <p class="eyebrow">Portfolio</p>
-      <h1 class="text-display name">{t.hero.name}</h1>
+      <div class="name-row">
+        <img
+          class="photo"
+          src={photoSrc}
+          alt={t.hero.photoAlt}
+          width="512"
+          height="512"
+          loading="eager"
+          decoding="async"
+        />
+        <h1 class="text-display name">{t.hero.name}</h1>
+      </div>
       <p class="role">{t.hero.role}</p>
       <p class="tagline">{t.hero.tagline}</p>
       <div class="cta">
@@ -35,6 +69,36 @@ const anchor = (id: string): string => `${homeHref}#${id}`;
         <p class="eyebrow">01</p>
         <h2 class="text-h2 heading">{t.sections.projects}</h2>
       </header>
+
+      <ul class="cards">
+        {
+          projects.map((project) => (
+            <li class="card content-panel" data-spotlight>
+              <div class="card-head">
+                <span class="year">{project.year}</span>
+                {project.role !== undefined && (
+                  <span class="badge">{project.role[lang]}</span>
+                )}
+              </div>
+              <h3 class="text-h3 card-title">{project.title[lang]}</h3>
+              <p class="card-body">{project.description[lang]}</p>
+              <ul class="tags">
+                {project.tech.map((item, index) => (
+                  <li style={`--i: ${index}`}>{item}</li>
+                ))}
+              </ul>
+              <a
+                class="card-link"
+                href={project.github}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {t.projects.viewOnGithub}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 
@@ -44,6 +108,11 @@ const anchor = (id: string): string => `${homeHref}#${id}`;
         <p class="eyebrow">02</p>
         <h2 class="text-h2 heading">{t.sections.about}</h2>
       </header>
+
+      <div class="panel content-panel" data-spotlight>
+        {t.about.body.map((paragraph) => <p class="prose">{paragraph}</p>)}
+        <p class="about-meta">{t.about.location} ・ {t.about.school}</p>
+      </div>
     </div>
   </section>
 
@@ -53,6 +122,41 @@ const anchor = (id: string): string => `${homeHref}#${id}`;
         <p class="eyebrow">03</p>
         <h2 class="text-h2 heading">{t.sections.experience}</h2>
       </header>
+
+      <ol class="timeline">
+        {
+          experience.map((item) => (
+            <li class="entry">
+              <div class="period">
+                <span>{formatPeriod(item)}</span>
+                {item.kind === 'short' && <span class="badge">{t.experience.short}</span>}
+              </div>
+              <div class="entry-body">
+                <h3 class="text-h3 entry-role">{item.role[lang]}</h3>
+                <p class="entry-org">
+                  {item.url === undefined ? (
+                    item.org[lang]
+                  ) : (
+                    <a href={item.url} rel="noopener noreferrer" target="_blank">
+                      {item.org[lang]}
+                    </a>
+                  )}
+                </p>
+                {item.blurb[lang] !== '' && <p class="entry-blurb">{item.blurb[lang]}</p>}
+                {item.highlights !== undefined && (
+                  <ul class="entry-highlights">
+                    {item.highlights.map((highlight) => (
+                      <li>
+                        <strong>{highlight.label[lang]}</strong> {highlight.body[lang]}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </section>
 
@@ -62,6 +166,57 @@ const anchor = (id: string): string => `${homeHref}#${id}`;
         <p class="eyebrow">04</p>
         <h2 class="text-h2 heading">{t.sections.skills}</h2>
       </header>
+
+      <div class="panel content-panel" data-spotlight>
+        <h3 class="sub-title">{t.skills.capabilitiesTitle}</h3>
+        <ul class="capabilities">
+          {
+            t.skills.capabilities.map((capability) => (
+              <li>
+                <p class="capability-title">{capability.title}</p>
+                <p class="prose">{capability.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="panel content-panel stack" data-spotlight>
+        <h3 class="sub-title">{t.skills.stackTitle}</h3>
+        <dl class="groups">
+          {
+            skills.map((group) => (
+              <div class="group">
+                <dt>{t.skills.groups[group.key]}</dt>
+                <dd>
+                  <ul class="tags">
+                    {group.items.map((item, index) => {
+                      const tipId = `skill-tip-${group.key}-${index}`;
+                      return (
+                        <li style={`--i: ${index}`}>
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-describedby={tipId}
+                          >
+                            {skillLabel(item, lang)}
+                          </a>
+                          <span class="tag-tip" role="tooltip" id={tipId}>
+                            <span class="tag-tip-name">{skillLabel(item, lang)}</span>
+                            <span class="tag-tip-host">{skillHost(item.url)}</span>
+                            <span class="tag-tip-note">{item.note[lang]}</span>
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -71,9 +226,33 @@ const anchor = (id: string): string => `${homeHref}#${id}`;
         <p class="eyebrow">05</p>
         <h2 class="text-h2 heading">{t.sections.contact}</h2>
       </header>
+
+      <div class="panel content-panel" data-spotlight>
+        <p class="prose">{t.contact.body}</p>
+        <ul class="links">
+          <li>
+            <span class="link-label">{t.contact.email}</span>
+            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          </li>
+          <li>
+            <span class="link-label">{t.contact.github}</span>
+            <a href={GITHUB_URL} rel="noopener noreferrer" target="_blank">CHU1PC</a>
+          </li>
+          <li>
+            <span class="link-label">{t.contact.x}</span>
+            <a href={X_URL} rel="noopener noreferrer" target="_blank">@tad_chu</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </Base>
+
+<script>
+  import { alignSkillTips } from '../../scripts/skill-tooltip';
+
+  alignSkillTips();
+</script>
 
 <style>
   .hero {
@@ -84,9 +263,38 @@ const anchor = (id: string): string => `${homeHref}#${id}`;
     padding: calc(var(--nav-height) + 2rem) var(--page-gutter) 4rem;
   }
 
-  .name {
+  .name-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
     margin: 0.2em 0 0;
+  }
+
+  .name {
+    margin: 0;
     font-weight: 400;
+  }
+
+  .photo {
+    flex-shrink: 0;
+    width: clamp(5rem, 9vw, 8.5rem);
+    height: clamp(5rem, 9vw, 8.5rem);
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 4px var(--surface),
+      0 0 0 5px var(--line);
+    object-fit: cover;
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .photo {
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover {
+      transform: scale(1.04);
+    }
   }
 
   .role {
@@ -201,10 +409,491 @@ const anchor = (id: string): string => `${homeHref}#${id}`;
     font-weight: 400;
   }
 
+  .panel {
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .panel + .panel {
+    margin-top: clamp(1rem, 2vw, 1.75rem);
+  }
+
+  .prose {
+    margin: 0;
+    max-width: 68ch;
+    color: var(--ink-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .prose + .prose {
+    margin-top: 1.6em;
+  }
+
+  .badge {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.25em 0.9em;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tags li {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    padding: 0.2em 0.75em;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.1em;
+  }
+
+  @media (hover: hover) {
+    .tags li {
+      transition: border-color 0.25s ease;
+    }
+
+    .tags li:hover {
+      border-color: var(--line-strong);
+    }
+  }
+
+  .tags li:focus-within {
+    border-color: var(--line-strong);
+  }
+
+  /* li の見た目（枠・余白）はそのまま、リンクの当たり判定だけをタグ全体へ広げる */
+  .tags li > a {
+    display: block;
+    margin: -0.2em -0.75em;
+    padding: 0.2em 0.75em;
+  }
+
+  .tag-tip {
+    --tip-x: -50%;
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.5rem);
+    translate: var(--tip-x) 4px;
+    z-index: 20;
+    display: block;
+    width: max-content;
+    max-width: 16rem;
+    padding: 0.6em 0.85em;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background-color: color-mix(in srgb, var(--surface) 90%, transparent);
+    font-size: var(--fs-small);
+    letter-spacing: normal;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .tag-tip[data-align='start'] {
+    --tip-x: 0%;
+    left: 0;
+  }
+
+  .tag-tip[data-align='end'] {
+    --tip-x: 0%;
+    left: auto;
+    right: 0;
+  }
+
+  .tag-tip-name {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .tag-tip-host {
+    display: block;
+    margin-top: 0.15em;
+    color: var(--ink-faint);
+  }
+
+  .tag-tip-note {
+    display: block;
+    margin-top: 0.35em;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  .tags li:focus-within .tag-tip {
+    opacity: 1;
+    visibility: visible;
+    translate: var(--tip-x) 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .tag-tip {
+      transition:
+        opacity 0.15s ease,
+        translate 0.15s ease,
+        visibility 0.15s;
+    }
+  }
+
+  @media (hover: hover) {
+    .tags li:hover .tag-tip {
+      opacity: 1;
+      visibility: visible;
+      translate: var(--tip-x) 0;
+    }
+  }
+
+  /* Projects */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  @media (hover: hover) {
+    .card:hover {
+      border-color: var(--line-strong);
+    }
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card .tags li {
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .card:hover .tags li {
+      transform: translateY(-2px);
+      transition-delay: calc(var(--i) * 30ms);
+    }
+
+    .card:hover .card-link::after {
+      transform: translateX(4px);
+    }
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .year {
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.24em;
+  }
+
+  .card-title {
+    margin: 0;
+    font-family: var(--font-mincho);
+    font-weight: 400;
+  }
+
+  .card-body {
+    margin: 0;
+    color: var(--ink-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .card-link {
+    margin-top: auto;
+    align-self: flex-start;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 0.3em;
+    color: var(--ink-muted);
+    font-size: var(--fs-small);
+    letter-spacing: 0.14em;
+    transition: color 0.3s ease;
+  }
+
+  .card-link:hover {
+    color: var(--ink);
+  }
+
+  .card-link::after {
+    content: '\2192';
+    display: inline-block;
+    margin-left: 0.6em;
+    transition: transform 0.25s ease;
+  }
+
+  /* About */
+  .about-meta {
+    margin: 2.5em 0 0;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.14em;
+  }
+
+  /* Experience */
+  .timeline {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    gap: clamp(0.75rem, 3vw, 2.5rem);
+    padding-block: clamp(1.75rem, 4vh, 3rem);
+  }
+
+  .entry + .entry {
+    border-top: 1px solid var(--line);
+  }
+
+  .period {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: start;
+    gap: 0.75rem;
+    padding-top: 0.5em;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.14em;
+  }
+
+  .entry-body {
+    position: relative;
+    border-left: 1px solid var(--line);
+    padding-left: clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  /* タイムラインの節点 */
+  .entry-body::before {
+    content: '';
+    position: absolute;
+    left: -0.3125rem;
+    top: 0.6em;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background-color: var(--line-strong);
+  }
+
+  .entry-role {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .entry-org {
+    margin: 0.4em 0 0;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.14em;
+  }
+
+  .entry-org a {
+    border-bottom: 1px solid var(--line);
+    transition: color 0.3s ease;
+  }
+
+  .entry-org a:hover {
+    color: var(--ink);
+  }
+
+  .entry-blurb {
+    margin: 1.2em 0 0;
+    max-width: 60ch;
+    color: var(--ink-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .entry-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 0.9em 0 0;
+    padding: 0;
+    max-width: 60ch;
+    list-style: none;
+    color: var(--ink-muted);
+  }
+
+  .entry-highlights li {
+    padding-left: 1.1em;
+    position: relative;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .entry-highlights li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+  }
+
+  .entry-highlights strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* Skills */
+  .sub-title {
+    margin: 0 0 2rem;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .capabilities {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .capability-title {
+    margin: 0 0 0.6em;
+    font-family: var(--font-mincho);
+  }
+
+  .groups {
+    display: grid;
+    gap: clamp(1.25rem, 3vw, 2rem);
+    margin: 0;
+  }
+
+  /* ポップアップが板の外へはみ出せるよう、この板だけ overflow を解除する。
+     [data-spotlight] のスポットライト演出は border-radius を明示して丸みを保つ */
+  .stack[data-spotlight] {
+    overflow: visible;
+  }
+
+  .stack[data-spotlight]::before {
+    border-radius: inherit;
+  }
+
+  .group {
+    display: grid;
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    gap: 0.75rem clamp(1rem, 2vw, 2rem);
+    align-items: baseline;
+  }
+
+  .group dt {
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .group dd {
+    margin: 0;
+  }
+
+  /* Contact */
+  .links {
+    display: grid;
+    gap: 1rem;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .links li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem clamp(1rem, 2vw, 2rem);
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
+  }
+
+  .link-label {
+    min-width: 8rem;
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .links a {
+    color: var(--ink-muted);
+    overflow-wrap: anywhere;
+    transition: color 0.3s ease;
+  }
+
+  .links a:hover {
+    color: var(--ink);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .scroll::after {
       animation: none;
       transform: scaleY(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .name-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .photo {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .cards,
+    .capabilities {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .entry,
+    .group {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .entry-body {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    .entry-body::before {
+      display: none;
+    }
+
+    .link-label {
+      min-width: 0;
     }
   }
 </style>
