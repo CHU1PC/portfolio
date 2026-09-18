@@ -1,0 +1,114 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import Nav from '../components/Nav.svelte';
+import { otherLang, useTranslations, type Lang } from '../i18n';
+import '../styles/global.css';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+}
+
+const { lang, title, description } = Astro.props;
+
+const t = useTranslations(lang);
+const alt = otherLang(lang);
+const altT = useTranslations(alt);
+
+const homeHref = getRelativeLocaleUrl(lang, '/');
+const altHref = getRelativeLocaleUrl(alt, '/');
+
+const sectionIds = ['projects', 'about', 'experience', 'skills', 'contact'] as const;
+const navItems = sectionIds.map((id) => ({
+  id,
+  href: `${homeHref}#${id}`,
+  label: t.nav.items[id]
+}));
+
+const assetBase = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pageTitle = title ?? t.meta.title;
+const pageDescription = description ?? t.meta.description;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang={lang} data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={`${assetBase}/favicon.svg`} type="image/svg+xml" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="Tadashi (CHU)" />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="alternate" hreflang={alt} href={new URL(altHref, Astro.site).href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical.href} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;600&display=swap"
+    />
+
+    <script is:inline>
+      // 初回ペイント前にテーマを確定させる
+      try {
+        const stored = localStorage.getItem('theme');
+        document.documentElement.dataset.theme = stored === 'light' ? 'light' : 'dark';
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+  </head>
+
+  <body>
+    <Nav
+      client:load
+      homeHref={homeHref}
+      items={navItems}
+      openLabel={t.nav.open}
+      closeLabel={t.nav.close}
+      langHref={altHref}
+      langLabel={altT.meta.short}
+      langAriaLabel={altT.meta.label}
+      toLight={t.theme.toLight}
+      toDark={t.theme.toDark}
+      labelLight={t.theme.labelLight}
+      labelDark={t.theme.labelDark}
+    />
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      {t.footer.builtWith !== '' && <span>{t.footer.builtWith}</span>}
+      <a href="https://github.com/CHU1PC/portfolio" rel="noopener noreferrer" target="_blank">
+        {t.footer.source}
+      </a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 3rem var(--page-gutter);
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 0.14em;
+  }
+
+  .footer a:hover {
+    color: var(--ink);
+  }
+</style>
