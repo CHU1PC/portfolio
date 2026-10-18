@@ -4,7 +4,7 @@ Personal portfolio of Tadashi (CHU) — live at [chu1pc.com](https://chu1pc.com)
 
 Built with Astro + TypeScript + Tailwind v4, with Svelte 5 islands for the interactive
 bits. Statically exported, bilingual JA/EN (`/ja/` and `/en/`), and auto-deployed to
-Cloudflare Pages from `main` (`bun run build`, output `dist/`).
+Cloudflare Workers from `main` (`bun run build`, static assets from `dist/`).
 
 ## Development
 
@@ -20,13 +20,14 @@ bun run check         # astro check
 
 ## Structure
 
-- `src/pages/` — routes. `index.astro` redirects to `/en/`, `[lang]/index.astro` renders the one-page site for each locale, `404.astro` is the Pages 404
+- `src/pages/` — routes. `index.astro` redirects to `/en/`, `[lang]/index.astro` renders the one-page site for each locale, `404.astro` is the custom 404
 - `src/layouts/Base.astro` — html shell, fonts, theme bootstrap, nav, footer
 - `src/components/` — `Nav.svelte`, `ThemeToggle.svelte`, `LangToggle.svelte` (Svelte islands) and `GeoBackground.astro`
 - `src/scripts/geo-background.ts` — canvas geometric line-art background, no framework
 - `src/styles/global.css` — Tailwind entry, theme tokens, fluid type scale
 - `src/i18n/` — `ja.ts` / `en.ts` dictionaries and `useTranslations(lang)`
 - `public/` — `favicon.svg`, `me.webp`
+- `wrangler.jsonc` — Workers static asset configuration
 - `docs/legacy-content/` — content carried over from the SvelteKit version, not yet wired in
 
 ## Content updates
