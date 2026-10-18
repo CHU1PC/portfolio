@@ -4,7 +4,7 @@ Personal portfolio of Tadashi (CHU) — live at [chu1pc.com](https://chu1pc.com)
 
 Built with Astro + TypeScript + Tailwind v4, with Svelte 5 islands for the interactive
 bits. Statically exported, bilingual JA/EN (`/ja/` and `/en/`), and auto-deployed to
-GitHub Pages from `main` via GitHub Actions.
+Cloudflare Pages from `main` (`bun run build`, output `dist/`).
 
 ## Development
 
@@ -26,9 +26,8 @@ bun run check         # astro check
 - `src/scripts/geo-background.ts` — canvas geometric line-art background, no framework
 - `src/styles/global.css` — Tailwind entry, theme tokens, fluid type scale
 - `src/i18n/` — `ja.ts` / `en.ts` dictionaries and `useTranslations(lang)`
-- `public/` — `favicon.svg`, `.nojekyll`
+- `public/` — `favicon.svg`, `me.webp`
 - `docs/legacy-content/` — content carried over from the SvelteKit version, not yet wired in
-- `.github/workflows/deploy.yml` — Pages deploy
 
 ## Content updates
 
