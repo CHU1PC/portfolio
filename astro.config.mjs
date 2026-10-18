@@ -4,8 +4,7 @@ import svelte from '@astrojs/svelte';
 import tailwind from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://chu1pc.github.io',
-  base: '/portfolio',
+  site: 'https://chu1pc.com',
   output: 'static',
   trailingSlash: 'always',
   integrations: [svelte()],
