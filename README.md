@@ -1,6 +1,6 @@
 # portfolio
 
-Personal portfolio of Tadashi (CHU) — live at [chu1pc.github.io/portfolio](https://chu1pc.github.io/portfolio).
+Personal portfolio of Tadashi (CHU) — live at [chu1pc.com](https://chu1pc.com).
 
 Built with Astro + TypeScript + Tailwind v4, with Svelte 5 islands for the interactive
 bits. Statically exported, bilingual JA/EN (`/ja/` and `/en/`), and auto-deployed to
@@ -12,7 +12,7 @@ Requires [Bun](https://bun.sh).
 
 ```sh
 bun install
-bun run dev           # http://localhost:4321/portfolio/
+bun run dev           # http://localhost:4321/
 bun run build         # outputs dist/
 bun run preview       # serves dist/ locally
 bun run check         # astro check
