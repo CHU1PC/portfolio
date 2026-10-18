@@ -11,7 +11,10 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: { en: 'Backend & ML Engineering Intern', ja: 'バックエンド・機械学習エンジニアインターン' },
+    role: {
+      en: 'Backend & ML Engineering Intern',
+      ja: 'バックエンド・機械学習エンジニアインターン'
+    },
     org: { en: '2WINS, Inc.', ja: '株式会社 2WINS' },
     url: 'https://www.2wins.ai',
     start: '2025-04',

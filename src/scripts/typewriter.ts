@@ -115,8 +115,12 @@ export function startTypewriter(): () => void {
 
   return () => {
     cancelled = true;
-    activeIntervals.forEach((id) => window.clearInterval(id));
-    activeTimers.forEach((id) => window.clearTimeout(id));
+    activeIntervals.forEach((id) => {
+      window.clearInterval(id);
+    });
+    activeTimers.forEach((id) => {
+      window.clearTimeout(id);
+    });
     allLines.forEach(({ element, chars }) => {
       element.classList.remove(TYPING_CLASS);
       element.textContent = chars.join('');

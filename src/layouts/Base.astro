@@ -35,34 +35,34 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
 <html lang={lang} data-theme="dark">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href={`${assetBase}/favicon.svg`} type="image/svg+xml" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href={`${assetBase}/favicon.svg`} type="image/svg+xml">
     <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-    <meta name="author" content="Tadashi (CHU)" />
-    <link rel="canonical" href={canonical.href} />
-    <link rel="alternate" hreflang={alt} href={new URL(altHref, Astro.site).href} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:url" content={canonical.href} />
+    <meta name="description" content={pageDescription}>
+    <meta name="author" content="Tadashi (CHU)">
+    <link rel="canonical" href={canonical.href}>
+    <link rel="alternate" hreflang={alt} href={new URL(altHref, Astro.site).href}>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={pageTitle}>
+    <meta property="og:description" content={pageDescription}>
+    <meta property="og:url" content={canonical.href}>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;600&display=swap"
-    />
+    >
 
     <script is:inline>
-      // 初回ペイント前にテーマを確定させる
-      try {
-        const stored = localStorage.getItem('theme');
-        document.documentElement.dataset.theme = stored === 'light' ? 'light' : 'dark';
-      } catch {
-        document.documentElement.dataset.theme = 'dark';
-      }
+    // 初回ペイント前にテーマを確定させる
+    try {
+      const stored = localStorage.getItem('theme');
+      document.documentElement.dataset.theme = stored === 'light' ? 'light' : 'dark';
+    } catch {
+      document.documentElement.dataset.theme = 'dark';
+    }
     </script>
   </head>
 
@@ -98,46 +98,46 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </footer>
 
     <script>
-      import { startReveal } from '../scripts/reveal';
-      import { startScrollProgress } from '../scripts/scroll-progress';
+    import { startReveal } from '../scripts/reveal';
+    import { startScrollProgress } from '../scripts/scroll-progress';
 
-      startReveal();
+    startReveal();
 
-      const bar = document.getElementById('scroll-progress');
-      if (bar !== null) startScrollProgress(bar);
+    const bar = document.getElementById('scroll-progress');
+    if (bar !== null) startScrollProgress(bar);
     </script>
   </body>
 </html>
 
 <style>
-  /* 幅は scroll-progress.ts が scaleX で動かす */
-  #scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 60;
-    width: 100%;
-    height: 2px;
-    background-color: var(--ink);
-    transform: scaleX(0);
-    transform-origin: left center;
-    pointer-events: none;
-  }
+/* 幅は scroll-progress.ts が scaleX で動かす */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 100%;
+  height: 2px;
+  background-color: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
 
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 3rem var(--page-gutter);
-    border-top: 1px solid var(--line);
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.14em;
-  }
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 3rem var(--page-gutter);
+  border-top: 1px solid var(--line);
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.14em;
+}
 
-  .footer a:hover {
-    color: var(--ink);
-  }
+.footer a:hover {
+  color: var(--ink);
+}
 </style>

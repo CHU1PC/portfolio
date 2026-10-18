@@ -11,44 +11,42 @@ const NBSP = '\u00A0';
 ---
 
 <h2 class="text-h2 heading" aria-label={text}>
-  {
-    chars.map((char, index) => (
-      <span class="mask" aria-hidden="true" style={`--char-index: ${index}`}>
-        <span class="char">{char === ' ' ? NBSP : char}</span>
-      </span>
-    ))
-  }
+  {chars.map((char, index) => (
+    <span class="mask" aria-hidden="true" style={`--char-index: ${index}`}>
+      <span class="char">{char === ' ' ? NBSP : char}</span>
+    </span>
+  ))}
 </h2>
 
 <style>
-  .heading {
-    margin: 0;
-    font-family: var(--font-mincho);
-    font-weight: 400;
-  }
+.heading {
+  margin: 0;
+  font-family: var(--font-mincho);
+  font-weight: 400;
+}
 
-  /* overflow: hidden が下端で切るので、はみ出す分を padding で逃がして負の margin で詰める */
-  .mask {
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: bottom;
-    padding-bottom: 0.16em;
-    margin-bottom: -0.16em;
-  }
+/* overflow: hidden が下端で切るので、はみ出す分を padding で逃がして負の margin で詰める */
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
 
+.char {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
   .char {
-    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--char-index) * 30ms);
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .char {
-      transform: translateY(100%);
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-      transition-delay: calc(var(--char-index) * 30ms);
-    }
-
-    :global([data-reveal-group].is-visible) .char {
-      transform: none;
-    }
+  :global([data-reveal-group].is-visible) .char {
+    transform: none;
   }
+}
 </style>

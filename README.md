@@ -16,7 +16,13 @@ bun run dev           # http://localhost:4321/
 bun run build         # outputs dist/
 bun run preview       # serves dist/ locally
 bun run check         # astro check
+bun run check:code    # lint and format check for TypeScript, Astro, Svelte, and CSS
+bun run format        # format TypeScript, Astro, Svelte, and CSS files
 ```
+
+`bun install` installs a pre-commit hook. It formats and lints staged TypeScript,
+Astro, Svelte, and CSS files, then includes the formatting changes in the commit.
+`bun run check` also checks Astro and Svelte types.
 
 ## Structure
 

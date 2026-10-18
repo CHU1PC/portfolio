@@ -22,15 +22,7 @@ export const projects: readonly Project[] = [
       ja: '会議音声から議事録を自動生成する Web アプリ。AWS Transcribe で文字起こしと話者分離、Gemini で構造化 Markdown に要約し、pgvector で過去の議事録を自然言語検索できる。Google OAuth、レート制限、Alembic マイグレーション、GitHub Actions の CI まで一人で構築。',
       en: 'A web app that turns meeting audio into minutes on its own. AWS Transcribe handles transcription and speaker separation, Gemini condenses the result into structured Markdown, and pgvector makes past minutes searchable in plain language. I built all of it solo, down to Google OAuth, rate limiting, Alembic migrations and CI on GitHub Actions.'
     },
-    tech: [
-      'FastAPI',
-      'React 19',
-      'PostgreSQL',
-      'pgvector',
-      'AWS Transcribe',
-      'Gemini',
-      'Docker'
-    ],
+    tech: ['FastAPI', 'React 19', 'PostgreSQL', 'pgvector', 'AWS Transcribe', 'Gemini', 'Docker'],
     github: 'https://github.com/CHU1PC/Kikitoru/tree/develop',
     role: { ja: '個人開発', en: 'Solo project' }
   },
