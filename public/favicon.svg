@@ -1,6 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#6366f1"/>
-  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
-        font-family="'JetBrains Mono', ui-monospace, monospace"
-        font-size="26" font-weight="700" fill="#ffffff">C</text>
+  <defs>
+    <linearGradient id="charcoal-shift" x1="0" y1="0" x2="61.82" y2="11.59" gradientUnits="userSpaceOnUse">
+      <stop offset="51.6%" stop-color="#0a0a0a"/>
+      <stop offset="60.9%" stop-color="#2a2a2a"/>
+    </linearGradient>
+    <clipPath id="tile">
+      <rect width="64" height="64" rx="14"/>
+    </clipPath>
+    <mask id="letter" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g transform="translate(10.32 52.21) scale(1.03 -1.03)">
+        <path d="M 15.5 34.68 C 16.5 36.54 18.66 37.56 22.56 37.56 C 29.58 37.56 34.02 34.2 37.5 30.18 L 39.48 31.86 C 35.4 36.9 30.24 40.14 22.68 40.14 C 10.26 40.14 2.64 31.38 2.64 19.8 C 2.64 8.28 10.26 -0.9 22.38 -0.9 C 29.16 -0.9 34.74 1.92 39.36 7.56 L 37.5 9.36 C 33.72 4.92 29.28 1.8 22.74 1.8 C 17.28 1.8 16.5 2.94 15.5 4.86 Z" fill="#ffffff" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M 5.4 19.92 C 5.4 24.9 7.02 29.34 10.02 32.52 L 10.02 7.14 C 7.02 10.44 5.4 14.94 5.4 19.92 Z" fill="#000000"/>
+      </g>
+    </mask>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="64" height="64" fill="url(#charcoal-shift)"/>
+  </g>
+  <rect width="64" height="64" fill="#f8fafc" mask="url(#letter)"/>
 </svg>
