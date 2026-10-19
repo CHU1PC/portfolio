@@ -68,7 +68,10 @@ export const skills: readonly SkillGroup[] = [
       {
         name: 'React',
         url: 'https://react.dev/',
-        note: { ja: 'UI を構築する JavaScript ライブラリ。', en: 'JavaScript library for building UIs.' }
+        note: {
+          ja: 'UI を構築する JavaScript ライブラリ。',
+          en: 'JavaScript library for building UIs.'
+        }
       },
       {
         name: 'Svelte',
@@ -86,7 +89,10 @@ export const skills: readonly SkillGroup[] = [
       {
         name: 'Tailwind CSS',
         url: 'https://tailwindcss.com/',
-        note: { ja: 'ユーティリティファーストの CSS フレームワーク。', en: 'Utility-first CSS framework.' }
+        note: {
+          ja: 'ユーティリティファーストの CSS フレームワーク。',
+          en: 'Utility-first CSS framework.'
+        }
       },
       {
         name: 'Vite',
@@ -117,7 +123,10 @@ export const skills: readonly SkillGroup[] = [
       {
         name: 'FastAPI',
         url: 'https://fastapi.tiangolo.com/',
-        note: { ja: '非同期対応の Python Web API フレームワーク。', en: 'Async-first Python web API framework.' }
+        note: {
+          ja: '非同期対応の Python Web API フレームワーク。',
+          en: 'Async-first Python web API framework.'
+        }
       },
       {
         name: 'SQLModel',
@@ -156,7 +165,10 @@ export const skills: readonly SkillGroup[] = [
       {
         name: 'LangChain',
         url: 'https://www.langchain.com/',
-        note: { ja: 'LLM アプリを構築するフレームワーク。', en: 'Framework for building LLM applications.' }
+        note: {
+          ja: 'LLM アプリを構築するフレームワーク。',
+          en: 'Framework for building LLM applications.'
+        }
       },
       {
         name: 'OpenAI API',
@@ -166,7 +178,10 @@ export const skills: readonly SkillGroup[] = [
       {
         name: 'Gemini API',
         url: 'https://ai.google.dev/',
-        note: { ja: 'Google の Gemini モデルを利用する API。', en: 'API for using Google Gemini models.' }
+        note: {
+          ja: 'Google の Gemini モデルを利用する API。',
+          en: 'API for using Google Gemini models.'
+        }
       },
       {
         name: 'boto3',
@@ -209,7 +224,10 @@ export const skills: readonly SkillGroup[] = [
       {
         name: 'unsloth',
         url: 'https://unsloth.ai/',
-        note: { ja: 'LLM の高速なファインチューニングライブラリ。', en: 'Library for fast LLM fine-tuning.' }
+        note: {
+          ja: 'LLM の高速なファインチューニングライブラリ。',
+          en: 'Library for fast LLM fine-tuning.'
+        }
       },
       {
         name: { ja: '強化学習', en: 'Reinforcement Learning' },

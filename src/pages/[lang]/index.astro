@@ -51,7 +51,7 @@ function formatPeriod(item: Experience): string {
           height="512"
           loading="eager"
           decoding="async"
-        />
+        >
         <h1 class="sr-only">{t.hero.name}</h1>
         <span
           class="text-display name"
@@ -60,7 +60,8 @@ function formatPeriod(item: Experience): string {
           data-typewriter-order="1"
           data-typewriter-speed="70"
           aria-hidden="true"
-        >{t.hero.name}</span>
+          >{t.hero.name}</span
+        >
       </div>
       <p
         class="role"
@@ -70,7 +71,8 @@ function formatPeriod(item: Experience): string {
         data-typewriter-order="2"
         data-typewriter-speed="40"
         aria-hidden="true"
-      >{t.hero.role}</p>
+        >{t.hero.role}</p
+      >
       <p class="sr-only">{t.hero.role}</p>
       <p
         class="tagline"
@@ -80,7 +82,8 @@ function formatPeriod(item: Experience): string {
         data-typewriter-order="1"
         data-typewriter-speed="40"
         aria-hidden="true"
-      >{t.hero.tagline}</p>
+        >{t.hero.tagline}</p
+      >
       <p class="sr-only">{t.hero.tagline}</p>
       <div class="cta" data-reveal>
         <a class="cta-link" href={anchor('projects')}>{t.hero.ctaProjects}</a>
@@ -98,33 +101,24 @@ function formatPeriod(item: Experience): string {
       </header>
 
       <ul class="cards">
-        {
-          projects.map((project) => (
-            <li class="card content-panel" data-reveal data-spotlight>
-              <div class="card-head">
-                <span class="year">{project.year}</span>
-                {project.role !== undefined && (
-                  <span class="badge">{project.role[lang]}</span>
-                )}
-              </div>
-              <h3 class="text-h3 card-title">{project.title[lang]}</h3>
-              <p class="card-body">{project.description[lang]}</p>
-              <ul class="tags">
-                {project.tech.map((item, index) => (
-                  <li style={`--i: ${index}`}>{item}</li>
-                ))}
-              </ul>
-              <a
-                class="card-link"
-                href={project.github}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {t.projects.viewOnGithub}
-              </a>
-            </li>
-          ))
-        }
+        {projects.map((project) => (
+          <li class="card content-panel" data-reveal data-spotlight>
+            <div class="card-head">
+              <span class="year">{project.year}</span>
+              {project.role !== undefined && <span class="badge">{project.role[lang]}</span>}
+            </div>
+            <h3 class="text-h3 card-title">{project.title[lang]}</h3>
+            <p class="card-body">{project.description[lang]}</p>
+            <ul class="tags">
+              {project.tech.map((item, index) => (
+                <li style={`--i: ${index}`}>{item}</li>
+              ))}
+            </ul>
+            <a class="card-link" href={project.github} rel="noopener noreferrer" target="_blank">
+              {t.projects.viewOnGithub}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   </section>
@@ -151,38 +145,36 @@ function formatPeriod(item: Experience): string {
       </header>
 
       <ol class="timeline" data-timeline>
-        {
-          experience.map((item) => (
-            <li class="entry" data-reveal data-timeline-entry>
-              <div class="period">
-                <span>{formatPeriod(item)}</span>
-                {item.kind === 'short' && <span class="badge">{t.experience.short}</span>}
-              </div>
-              <div class="entry-body" data-timeline-body>
-                <h3 class="text-h3 entry-role">{item.role[lang]}</h3>
-                <p class="entry-org">
-                  {item.url === undefined ? (
-                    item.org[lang]
-                  ) : (
-                    <a href={item.url} rel="noopener noreferrer" target="_blank">
-                      {item.org[lang]}
-                    </a>
-                  )}
-                </p>
-                {item.blurb[lang] !== '' && <p class="entry-blurb">{item.blurb[lang]}</p>}
-                {item.highlights !== undefined && (
-                  <ul class="entry-highlights">
-                    {item.highlights.map((highlight) => (
-                      <li>
-                        <strong>{highlight.label[lang]}</strong> {highlight.body[lang]}
-                      </li>
-                    ))}
-                  </ul>
+        {experience.map((item) => (
+          <li class="entry" data-reveal data-timeline-entry>
+            <div class="period">
+              <span>{formatPeriod(item)}</span>
+              {item.kind === 'short' && <span class="badge">{t.experience.short}</span>}
+            </div>
+            <div class="entry-body" data-timeline-body>
+              <h3 class="text-h3 entry-role">{item.role[lang]}</h3>
+              <p class="entry-org">
+                {item.url === undefined ? (
+                  item.org[lang]
+                ) : (
+                  <a href={item.url} rel="noopener noreferrer" target="_blank">
+                    {item.org[lang]}
+                  </a>
                 )}
-              </div>
-            </li>
-          ))
-        }
+              </p>
+              {item.blurb[lang] !== '' && <p class="entry-blurb">{item.blurb[lang]}</p>}
+              {item.highlights !== undefined && (
+                <ul class="entry-highlights">
+                  {item.highlights.map((highlight) => (
+                    <li>
+                      <strong>{highlight.label[lang]}</strong> {highlight.body[lang]}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))}
       </ol>
     </div>
   </section>
@@ -197,51 +189,47 @@ function formatPeriod(item: Experience): string {
       <div class="panel content-panel" data-reveal data-spotlight>
         <h3 class="sub-title">{t.skills.capabilitiesTitle}</h3>
         <ul class="capabilities">
-          {
-            t.skills.capabilities.map((capability) => (
-              <li>
-                <p class="capability-title">{capability.title}</p>
-                <p class="prose">{capability.body}</p>
-              </li>
-            ))
-          }
+          {t.skills.capabilities.map((capability) => (
+            <li>
+              <p class="capability-title">{capability.title}</p>
+              <p class="prose">{capability.body}</p>
+            </li>
+          ))}
         </ul>
       </div>
 
       <div class="panel content-panel stack" data-reveal data-spotlight>
         <h3 class="sub-title">{t.skills.stackTitle}</h3>
         <dl class="groups">
-          {
-            skills.map((group) => (
-              <div class="group">
-                <dt>{t.skills.groups[group.key]}</dt>
-                <dd>
-                  <ul class="tags">
-                    {group.items.map((item, index) => {
-                      const tipId = `skill-tip-${group.key}-${index}`;
-                      return (
-                        <li style={`--i: ${index}`}>
-                          <a
-                            href={item.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-describedby={tipId}
-                          >
-                            {skillLabel(item, lang)}
-                          </a>
-                          <span class="tag-tip" role="tooltip" id={tipId}>
-                            <span class="tag-tip-name">{skillLabel(item, lang)}</span>
-                            <span class="tag-tip-host">{skillHost(item.url)}</span>
-                            <span class="tag-tip-note">{item.note[lang]}</span>
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </dd>
-              </div>
-            ))
-          }
+          {skills.map((group) => (
+            <div class="group">
+              <dt>{t.skills.groups[group.key]}</dt>
+              <dd>
+                <ul class="tags">
+                  {group.items.map((item, index) => {
+                    const tipId = `skill-tip-${group.key}-${index}`;
+                    return (
+                      <li style={`--i: ${index}`}>
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-describedby={tipId}
+                        >
+                          {skillLabel(item, lang)}
+                        </a>
+                        <span class="tag-tip" role="tooltip" id={tipId}>
+                          <span class="tag-tip-name">{skillLabel(item, lang)}</span>
+                          <span class="tag-tip-host">{skillHost(item.url)}</span>
+                          <span class="tag-tip-note">{item.note[lang]}</span>
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </dd>
+            </div>
+          ))}
         </dl>
       </div>
     </div>
@@ -276,726 +264,726 @@ function formatPeriod(item: Experience): string {
 </Base>
 
 <script>
-  import { startCounters } from '../../scripts/counter';
-  import { alignSkillTips } from '../../scripts/skill-tooltip';
-  import { startSpotlight } from '../../scripts/spotlight';
-  import { startTimeline } from '../../scripts/timeline';
-  import { startTypewriter } from '../../scripts/typewriter';
+import { startCounters } from '../../scripts/counter';
+import { alignSkillTips } from '../../scripts/skill-tooltip';
+import { startSpotlight } from '../../scripts/spotlight';
+import { startTimeline } from '../../scripts/timeline';
+import { startTypewriter } from '../../scripts/typewriter';
 
-  startCounters();
-  startSpotlight();
-  startTypewriter();
-  alignSkillTips();
+startCounters();
+startSpotlight();
+startTypewriter();
+alignSkillTips();
 
-  const timeline = document.querySelector<HTMLElement>('[data-timeline]');
-  if (timeline !== null) startTimeline(timeline);
+const timeline = document.querySelector<HTMLElement>('[data-timeline]');
+if (timeline !== null) startTimeline(timeline);
 </script>
 
 <style>
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100svh;
-    padding: calc(var(--nav-height) + 2rem) var(--page-gutter) 4rem;
-  }
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  padding: calc(var(--nav-height) + 2rem) var(--page-gutter) 4rem;
+}
 
-  .name-row {
-    display: flex;
-    align-items: center;
-    gap: clamp(1rem, 2.5vw, 1.75rem);
-    margin: 0.2em 0 0;
-  }
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin: 0.2em 0 0;
+}
 
-  .name {
-    margin: 0;
-    min-height: 1lh;
-    font-weight: 400;
-  }
+.name {
+  margin: 0;
+  min-height: 1lh;
+  font-weight: 400;
+}
 
+.photo {
+  flex-shrink: 0;
+  width: clamp(5rem, 9vw, 8.5rem);
+  height: clamp(5rem, 9vw, 8.5rem);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px var(--surface),
+    0 0 0 5px var(--line);
+  object-fit: cover;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .photo {
-    flex-shrink: 0;
-    width: clamp(5rem, 9vw, 8.5rem);
-    height: clamp(5rem, 9vw, 8.5rem);
-    border: 1px solid var(--line-strong);
-    border-radius: 50%;
-    box-shadow:
-      0 0 0 4px var(--surface),
-      0 0 0 5px var(--line);
-    object-fit: cover;
+    transition: transform 0.3s ease;
   }
 
-  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    .photo {
-      transition: transform 0.3s ease;
-    }
-
-    .photo:hover {
-      transform: scale(1.04);
-    }
+  .photo:hover {
+    transform: scale(1.04);
   }
+}
 
-  .role {
-    margin: 1.2em 0 0;
-    min-height: 1lh;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: var(--fs-small);
+.role {
+  margin: 1.2em 0 0;
+  min-height: 1lh;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: var(--fs-small);
+}
+
+/* typewriter.ts が打っている間だけカーソルを出す */
+.name.is-typing::after,
+.role.is-typing::after,
+.tagline.is-typing::after {
+  content: "|";
+  margin-left: 0.1em;
+  animation: caret 1s step-end infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
   }
+}
 
-  /* typewriter.ts が打っている間だけカーソルを出す */
-  .name.is-typing::after,
-  .role.is-typing::after,
-  .tagline.is-typing::after {
-    content: '|';
-    margin-left: 0.1em;
-    animation: caret 1s step-end infinite;
-  }
+.tagline {
+  margin: 1.6em 0 0;
+  min-height: 1lh;
+  max-width: 52ch;
+  color: var(--ink-muted);
+}
 
-  @keyframes caret {
-    50% {
-      opacity: 0;
-    }
-  }
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
 
-  .tagline {
-    margin: 1.6em 0 0;
-    min-height: 1lh;
-    max-width: 52ch;
-    color: var(--ink-muted);
-  }
+.cta-link {
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.6em 1.8em;
+  font-size: var(--fs-small);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
 
-  .cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 2.5rem;
-  }
+.cta-link:hover {
+  background-color: var(--ink);
+  color: var(--surface);
+}
 
-  .cta-link {
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    padding: 0.6em 1.8em;
-    font-size: var(--fs-small);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
-  }
+.scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-top: 4rem;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.4s ease;
+}
 
-  .cta-link:hover {
-    background-color: var(--ink);
-    color: var(--surface);
-  }
+.scroll::after {
+  content: "";
+  width: 1px;
+  height: 3.5rem;
+  background-color: var(--line-strong);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: scroll-line 1.8s ease-in-out infinite;
+}
 
-  .scroll {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.9rem;
-    margin-top: 4rem;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    line-height: 1.2;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    transition: opacity 0.4s ease;
-  }
-
-  .scroll::after {
-    content: '';
-    width: 1px;
-    height: 3.5rem;
-    background-color: var(--line-strong);
+/* 上から伸びて、下端へ吸い込まれる */
+@keyframes scroll-line {
+  0% {
     transform: scaleY(0);
     transform-origin: top;
-    animation: scroll-line 1.8s ease-in-out infinite;
   }
 
-  /* 上から伸びて、下端へ吸い込まれる */
-  @keyframes scroll-line {
-    0% {
-      transform: scaleY(0);
-      transform-origin: top;
-    }
-
-    50% {
-      transform: scaleY(1);
-      transform-origin: top;
-    }
-
-    50.01% {
-      transform: scaleY(1);
-      transform-origin: bottom;
-    }
-
-    100% {
-      transform: scaleY(0);
-      transform-origin: bottom;
-    }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
   }
 
-  :global(html[data-scrolled]) .scroll {
-    opacity: 0;
+  50.01% {
+    transform: scaleY(1);
+    transform-origin: bottom;
   }
 
-  .eyebrow {
-    margin: 0;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
   }
+}
 
-  .block {
-    border-top: 1px solid var(--line);
-    padding-block: clamp(5rem, 20vh, 14rem);
-    padding-inline: var(--page-gutter);
-  }
+:global(html[data-scrolled]) .scroll {
+  opacity: 0;
+}
 
-  .section-head {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: clamp(1rem, 3vw, 2.5rem);
-    margin-bottom: clamp(2.5rem, 7vh, 5rem);
-  }
+.eyebrow {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
 
-  .panel {
-    padding: clamp(1.5rem, 4vw, 3rem);
-  }
+.block {
+  border-top: 1px solid var(--line);
+  padding-block: clamp(5rem, 20vh, 14rem);
+  padding-inline: var(--page-gutter);
+}
 
-  .panel + .panel {
-    margin-top: clamp(1rem, 2vw, 1.75rem);
-  }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-bottom: clamp(2.5rem, 7vh, 5rem);
+}
 
-  .prose {
-    margin: 0;
-    max-width: 68ch;
-    color: var(--ink-muted);
-    overflow-wrap: anywhere;
-  }
+.panel {
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
 
-  .prose + .prose {
-    margin-top: 1.6em;
-  }
+.panel + .panel {
+  margin-top: clamp(1rem, 2vw, 1.75rem);
+}
 
-  .badge {
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 0.25em 0.9em;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.14em;
-    white-space: nowrap;
-  }
+.prose {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--ink-muted);
+  overflow-wrap: anywhere;
+}
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+.prose + .prose {
+  margin-top: 1.6em;
+}
 
+.badge {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25em 0.9em;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.2em 0.75em;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.1em;
+}
+
+@media (hover: hover) {
   .tags li {
-    position: relative;
-    border: 1px solid var(--line);
-    border-radius: 0.5rem;
-    padding: 0.2em 0.75em;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.1em;
+    transition: border-color 0.25s ease;
   }
 
-  @media (hover: hover) {
-    .tags li {
-      transition: border-color 0.25s ease;
-    }
-
-    .tags li:hover {
-      border-color: var(--line-strong);
-    }
-  }
-
-  .tags li:focus-within {
+  .tags li:hover {
     border-color: var(--line-strong);
   }
+}
 
-  /* li の見た目（枠・余白）はそのまま、リンクの当たり判定だけをタグ全体へ広げる */
-  .tags li > a {
-    display: block;
-    margin: -0.2em -0.75em;
-    padding: 0.2em 0.75em;
-  }
+.tags li:focus-within {
+  border-color: var(--line-strong);
+}
 
+/* li の見た目（枠・余白）はそのまま、リンクの当たり判定だけをタグ全体へ広げる */
+.tags li > a {
+  display: block;
+  margin: -0.2em -0.75em;
+  padding: 0.2em 0.75em;
+}
+
+.tag-tip {
+  --tip-x: -50%;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.5rem);
+  translate: var(--tip-x) 4px;
+  z-index: 20;
+  display: block;
+  width: max-content;
+  max-width: 16rem;
+  padding: 0.6em 0.85em;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background-color: color-mix(in srgb, var(--surface) 90%, transparent);
+  font-size: var(--fs-small);
+  letter-spacing: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.tag-tip[data-align="start"] {
+  --tip-x: 0%;
+  left: 0;
+}
+
+.tag-tip[data-align="end"] {
+  --tip-x: 0%;
+  left: auto;
+  right: 0;
+}
+
+.tag-tip-name {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.tag-tip-host {
+  display: block;
+  margin-top: 0.15em;
+  color: var(--ink-faint);
+}
+
+.tag-tip-note {
+  display: block;
+  margin-top: 0.35em;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.tags li:focus-within .tag-tip {
+  opacity: 1;
+  visibility: visible;
+  translate: var(--tip-x) 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
   .tag-tip {
-    --tip-x: -50%;
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 0.5rem);
-    translate: var(--tip-x) 4px;
-    z-index: 20;
-    display: block;
-    width: max-content;
-    max-width: 16rem;
-    padding: 0.6em 0.85em;
-    border: 1px solid var(--line);
-    border-radius: 0.5rem;
-    background-color: color-mix(in srgb, var(--surface) 90%, transparent);
-    font-size: var(--fs-small);
-    letter-spacing: normal;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    transition:
+      opacity 0.15s ease,
+      translate 0.15s ease,
+      visibility 0.15s;
   }
+}
 
-  .tag-tip[data-align='start'] {
-    --tip-x: 0%;
-    left: 0;
-  }
-
-  .tag-tip[data-align='end'] {
-    --tip-x: 0%;
-    left: auto;
-    right: 0;
-  }
-
-  .tag-tip-name {
-    display: block;
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  .tag-tip-host {
-    display: block;
-    margin-top: 0.15em;
-    color: var(--ink-faint);
-  }
-
-  .tag-tip-note {
-    display: block;
-    margin-top: 0.35em;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
-
-  .tags li:focus-within .tag-tip {
+@media (hover: hover) {
+  .tags li:hover .tag-tip {
     opacity: 1;
     visibility: visible;
     translate: var(--tip-x) 0;
   }
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    .tag-tip {
-      transition:
-        opacity 0.15s ease,
-        translate 0.15s ease,
-        visibility 0.15s;
-    }
+/* Projects */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: var(--line-strong);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover {
+    transform: translateY(-4px);
   }
 
-  @media (hover: hover) {
-    .tags li:hover .tag-tip {
-      opacity: 1;
-      visibility: visible;
-      translate: var(--tip-x) 0;
-    }
-  }
-
-  /* Projects */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1rem, 2vw, 1.75rem);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
+  .card .tags li {
     transition:
       transform 0.25s ease,
       border-color 0.25s ease;
   }
 
-  @media (hover: hover) {
-    .card:hover {
-      border-color: var(--line-strong);
-    }
+  .card:hover .tags li {
+    transform: translateY(-2px);
+    transition-delay: calc(var(--i) * 30ms);
   }
 
-  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card .tags li {
-      transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .card:hover .tags li {
-      transform: translateY(-2px);
-      transition-delay: calc(var(--i) * 30ms);
-    }
-
-    .card:hover .card-link::after {
-      transform: translateX(4px);
-    }
+  .card:hover .card-link::after {
+    transform: translateX(4px);
   }
+}
 
-  .card-head {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+.card-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
-  .year {
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.24em;
-  }
+.year {
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.24em;
+}
 
-  .card-title {
-    margin: 0;
-    font-family: var(--font-mincho);
-    font-weight: 400;
-  }
+.card-title {
+  margin: 0;
+  font-family: var(--font-mincho);
+  font-weight: 400;
+}
 
-  .card-body {
-    margin: 0;
-    color: var(--ink-muted);
-    overflow-wrap: anywhere;
-  }
+.card-body {
+  margin: 0;
+  color: var(--ink-muted);
+  overflow-wrap: anywhere;
+}
 
-  .card-link {
-    margin-top: auto;
-    align-self: flex-start;
-    border-bottom: 1px solid var(--line-strong);
-    padding-bottom: 0.3em;
-    color: var(--ink-muted);
-    font-size: var(--fs-small);
-    letter-spacing: 0.14em;
-    transition: color 0.3s ease;
-  }
+.card-link {
+  margin-top: auto;
+  align-self: flex-start;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 0.3em;
+  color: var(--ink-muted);
+  font-size: var(--fs-small);
+  letter-spacing: 0.14em;
+  transition: color 0.3s ease;
+}
 
-  .card-link:hover {
-    color: var(--ink);
-  }
+.card-link:hover {
+  color: var(--ink);
+}
 
-  .card-link::after {
-    content: '\2192';
-    display: inline-block;
-    margin-left: 0.6em;
-    transition: transform 0.25s ease;
-  }
+.card-link::after {
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.6em;
+  transition: transform 0.25s ease;
+}
 
-  /* About */
-  .about-meta {
-    margin: 2.5em 0 0;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.14em;
-  }
+/* About */
+.about-meta {
+  margin: 2.5em 0 0;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.14em;
+}
 
-  /* Experience */
-  .timeline {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+/* Experience */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-  /* 位置と進捗は timeline.ts が測って CSS 変数で渡す。
+/* 位置と進捗は timeline.ts が測って CSS 変数で渡す。
      is-animated が付くまでは各項目の border-left がそのまま線になる */
-  .timeline.is-animated::after {
-    content: '';
-    position: absolute;
-    left: var(--line-left, 0);
-    top: var(--line-top, 0);
-    width: 1px;
-    height: var(--line-height, 0);
-    background-color: var(--line);
-    transform: scaleY(var(--timeline-progress, 0));
-    transform-origin: top;
+.timeline.is-animated::after {
+  content: "";
+  position: absolute;
+  left: var(--line-left, 0);
+  top: var(--line-top, 0);
+  width: 1px;
+  height: var(--line-height, 0);
+  background-color: var(--line);
+  transform: scaleY(var(--timeline-progress, 0));
+  transform-origin: top;
+}
+
+.timeline.is-animated .entry-body {
+  border-left-color: transparent;
+}
+
+.timeline.is-animated .entry-body::before {
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.timeline.is-animated .entry.is-on .entry-body::before {
+  transform: scale(1);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: clamp(0.75rem, 3vw, 2.5rem);
+  padding-block: clamp(1.75rem, 4vh, 3rem);
+}
+
+.entry + .entry {
+  border-top: 1px solid var(--line);
+}
+
+.period {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: start;
+  gap: 0.75rem;
+  padding-top: 0.5em;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.14em;
+}
+
+.entry-body {
+  position: relative;
+  border-left: 1px solid var(--line);
+  padding-left: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+/* タイムラインの節点 */
+.entry-body::before {
+  content: "";
+  position: absolute;
+  left: -0.3125rem;
+  top: 0.6em;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background-color: var(--line-strong);
+}
+
+.entry-role {
+  margin: 0;
+  font-weight: 400;
+}
+
+.entry-org {
+  margin: 0.4em 0 0;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.14em;
+}
+
+.entry-org a {
+  border-bottom: 1px solid var(--line);
+  transition: color 0.3s ease;
+}
+
+.entry-org a:hover {
+  color: var(--ink);
+}
+
+.entry-blurb {
+  margin: 1.2em 0 0;
+  max-width: 60ch;
+  color: var(--ink-muted);
+  overflow-wrap: anywhere;
+}
+
+.entry-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 0.9em 0 0;
+  padding: 0;
+  max-width: 60ch;
+  list-style: none;
+  color: var(--ink-muted);
+}
+
+.entry-highlights li {
+  padding-left: 1.1em;
+  position: relative;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.entry-highlights li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--ink-faint);
+}
+
+.entry-highlights strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Skills */
+.sub-title {
+  margin: 0 0 2rem;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability-title {
+  margin: 0 0 0.6em;
+  font-family: var(--font-mincho);
+}
+
+.groups {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin: 0;
+}
+
+/* ポップアップが板の外へはみ出せるよう、この板だけ overflow を解除する。
+     [data-spotlight] のスポットライト演出は border-radius を明示して丸みを保つ */
+.stack[data-spotlight] {
+  overflow: visible;
+}
+
+.stack[data-spotlight]::before {
+  border-radius: inherit;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: 0.75rem clamp(1rem, 2vw, 2rem);
+  align-items: baseline;
+}
+
+.group dt {
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.group dd {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .group .tags li {
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      border-color 0.25s ease;
+    transition-delay: calc(var(--i) * 25ms);
   }
 
-  .timeline.is-animated .entry-body {
-    border-left-color: transparent;
+  [data-reveal-group].is-visible .group .tags li {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Contact */
+.links {
+  display: grid;
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.links li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem clamp(1rem, 2vw, 2rem);
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.link-label {
+  min-width: 8rem;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.links a {
+  color: var(--ink-muted);
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll::after {
+    animation: none;
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .name-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .timeline.is-animated .entry-body::before {
-    transform: scale(0);
-    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  .photo {
+    width: 5rem;
+    height: 5rem;
   }
 
-  .timeline.is-animated .entry.is-on .entry-body::before {
-    transform: scale(1);
+  .cards,
+  .capabilities {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .entry {
-    display: grid;
-    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
-    gap: clamp(0.75rem, 3vw, 2.5rem);
-    padding-block: clamp(1.75rem, 4vh, 3rem);
-  }
-
-  .entry + .entry {
-    border-top: 1px solid var(--line);
-  }
-
-  .period {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-self: start;
-    gap: 0.75rem;
-    padding-top: 0.5em;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.14em;
+  .entry,
+  .group {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .entry-body {
-    position: relative;
-    border-left: 1px solid var(--line);
-    padding-left: clamp(1.25rem, 3vw, 2.5rem);
+    border-left: 0;
+    padding-left: 0;
   }
 
-  /* タイムラインの節点 */
   .entry-body::before {
-    content: '';
-    position: absolute;
-    left: -0.3125rem;
-    top: 0.6em;
-    width: 0.625rem;
-    height: 0.625rem;
-    border-radius: 50%;
-    background-color: var(--line-strong);
+    display: none;
   }
 
-  .entry-role {
-    margin: 0;
-    font-weight: 400;
-  }
-
-  .entry-org {
-    margin: 0.4em 0 0;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.14em;
-  }
-
-  .entry-org a {
-    border-bottom: 1px solid var(--line);
-    transition: color 0.3s ease;
-  }
-
-  .entry-org a:hover {
-    color: var(--ink);
-  }
-
-  .entry-blurb {
-    margin: 1.2em 0 0;
-    max-width: 60ch;
-    color: var(--ink-muted);
-    overflow-wrap: anywhere;
-  }
-
-  .entry-highlights {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    margin: 0.9em 0 0;
-    padding: 0;
-    max-width: 60ch;
-    list-style: none;
-    color: var(--ink-muted);
-  }
-
-  .entry-highlights li {
-    padding-left: 1.1em;
-    position: relative;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-  }
-
-  .entry-highlights li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--ink-faint);
-  }
-
-  .entry-highlights strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  /* Skills */
-  .sub-title {
-    margin: 0 0 2rem;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-
-  .capabilities {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1.5rem, 3vw, 2.75rem);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .capability-title {
-    margin: 0 0 0.6em;
-    font-family: var(--font-mincho);
-  }
-
-  .groups {
-    display: grid;
-    gap: clamp(1.25rem, 3vw, 2rem);
-    margin: 0;
-  }
-
-  /* ポップアップが板の外へはみ出せるよう、この板だけ overflow を解除する。
-     [data-spotlight] のスポットライト演出は border-radius を明示して丸みを保つ */
-  .stack[data-spotlight] {
-    overflow: visible;
-  }
-
-  .stack[data-spotlight]::before {
-    border-radius: inherit;
-  }
-
-  .group {
-    display: grid;
-    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
-    gap: 0.75rem clamp(1rem, 2vw, 2rem);
-    align-items: baseline;
-  }
-
-  .group dt {
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
-  .group dd {
-    margin: 0;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .group .tags li {
-      opacity: 0;
-      transform: scale(0.9);
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        border-color 0.25s ease;
-      transition-delay: calc(var(--i) * 25ms);
-    }
-
-    [data-reveal-group].is-visible .group .tags li {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  /* Contact */
-  .links {
-    display: grid;
-    gap: 1rem;
-    margin: 2.5rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .links li {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.75rem clamp(1rem, 2vw, 2rem);
-    border-top: 1px solid var(--line);
-    padding-top: 1rem;
+  .timeline.is-animated::after {
+    display: none;
   }
 
   .link-label {
-    min-width: 8rem;
-    color: var(--ink-faint);
-    font-size: var(--fs-small);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    min-width: 0;
   }
-
-  .links a {
-    color: var(--ink-muted);
-    overflow-wrap: anywhere;
-    transition: color 0.3s ease;
-  }
-
-  .links a:hover {
-    color: var(--ink);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .scroll::after {
-      animation: none;
-      transform: scaleY(1);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .name-row {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .photo {
-      width: 5rem;
-      height: 5rem;
-    }
-
-    .cards,
-    .capabilities {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .entry,
-    .group {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .entry-body {
-      border-left: 0;
-      padding-left: 0;
-    }
-
-    .entry-body::before {
-      display: none;
-    }
-
-    .timeline.is-animated::after {
-      display: none;
-    }
-
-    .link-label {
-      min-width: 0;
-    }
-  }
+}
 </style>

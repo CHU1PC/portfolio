@@ -443,7 +443,7 @@ export function startGeoBackground(canvas: HTMLCanvasElement): () => void {
   /** 上へ流れて画面外に出た要素を反対側へ回す。margin は要素のはみ出し幅 */
   function wrapY(y: number, margin: number): number {
     const span = height + margin * 2;
-    return (((y + margin) % span) + span) % span - margin;
+    return ((((y + margin) % span) + span) % span) - margin;
   }
 
   /** basePosT（周回 [-margin, height+margin) 上の 0〜1 位置）を実ピクセル位置に変換する */
@@ -534,7 +534,13 @@ export function startGeoBackground(canvas: HTMLCanvasElement): () => void {
       const spin = arcSpins[index];
       for (const ratio of spec.radii) {
         ctx.beginPath();
-        ctx.arc(x, y, ratio * minSide * scale, spec.startAngle + spin, spec.startAngle + spin + spec.sweep);
+        ctx.arc(
+          x,
+          y,
+          ratio * minSide * scale,
+          spec.startAngle + spin,
+          spec.startAngle + spin + spec.sweep
+        );
         ctx.stroke();
       }
     });
