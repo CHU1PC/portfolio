@@ -73,6 +73,10 @@ const ja: Dictionary = {
       }
     ],
     stackTitle: '使用している技術',
+    kaggleSummary:
+      'Kaggriculture の公開リーダーボードで 10,148 チーム中、上位 2% に入りました（2026 年 10 月 19 日確認）。',
+    kaggleProfile: 'Kaggle プロフィールを見る',
+    kaggleLeaderboard: 'リーダーボードを見る',
     groups: {
       languages: '言語',
       frontend: 'フロントエンド',

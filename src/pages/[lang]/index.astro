@@ -22,6 +22,8 @@ const photoSrc = `${import.meta.env.BASE_URL}me.webp`;
 const EMAIL = 'raikyu70@gmail.com';
 const GITHUB_URL = 'https://github.com/CHU1PC';
 const X_URL = 'https://x.com/tad_chu';
+const KAGGLE_URL = 'https://www.kaggle.com/tadashikato';
+const KAGGRICULTURE_URL = 'https://www.kaggle.com/competitions/kaggriculture/leaderboard';
 
 /** 期間が未確定のデータに入る番兵 */
 const TBD = 'TODO';
@@ -231,6 +233,19 @@ function formatPeriod(item: Experience): string {
             </div>
           ))}
         </dl>
+      </div>
+
+      <div class="panel content-panel" data-reveal data-spotlight>
+        <h3 class="sub-title">Kaggle</h3>
+        <p class="prose">{t.skills.kaggleSummary}</p>
+        <div class="kaggle-links">
+          <a class="card-link" href={KAGGLE_URL} rel="noopener noreferrer" target="_blank">
+            {t.skills.kaggleProfile}
+          </a>
+          <a class="card-link" href={KAGGRICULTURE_URL} rel="noopener noreferrer" target="_blank">
+            {t.skills.kaggleLeaderboard}
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -831,6 +846,13 @@ if (timeline !== null) startTimeline(timeline);
 }
 
 /* Skills */
+.kaggle-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
 .sub-title {
   margin: 0 0 2rem;
   color: var(--ink-faint);
