@@ -72,6 +72,10 @@ const en = {
       }
     ],
     stackTitle: 'Stack I work with',
+    kaggleSummary:
+      'Top 2% of 10,148 teams on the Kaggriculture public leaderboard (checked October 19, 2026).',
+    kaggleProfile: 'View Kaggle profile',
+    kaggleLeaderboard: 'View leaderboard',
     groups: {
       languages: 'Languages',
       frontend: 'Frontend',
